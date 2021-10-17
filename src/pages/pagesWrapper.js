@@ -1,8 +1,10 @@
 import * as React from 'react';
 import {Helmet} from 'react-helmet';
 import {styled, createTheme, ThemeProvider} from '@mui/material/styles';
+import Container from '@mui/material/Container';
+import CssBaseline from '@mui/material/CssBaseline';
 
-import 'normalize.css';
+import Header from '../components/Header';
 
 const theme = createTheme({
   palette: {
@@ -65,31 +67,34 @@ const theme = createTheme({
   },
 });
 
-const StyledWrapper = styled('div')(
-  ({theme}) => `
-    min-width: 100vh;
-    min-height: 100vh;
-    color: ${theme.palette.text.primary};
-    background-color: ${theme.palette.background.default};
-  `,
-);
+const StyledWrapper = styled('div')(({theme}) => ({
+  minWidth: '100vh',
+  minHeight: '100vh',
+  paddingTop: 70,
+  color: theme.palette.text.primary,
+  backgroundColor: theme.palette.background.default,
+}));
 
 export const wrapPages = ({element}) => (
   <ThemeProvider theme={theme}>
+    <CssBaseline />
     <StyledWrapper>
-      <Helmet
-        title="Honey badgers BJJ team"
-        meta={[
-          {"name": "description", "content": "Тренировки по BJJ в Москве"}
-        ]}
-        link={[
-          {"rel": "preconnect", "href": "https://fonts.googleapis.com"},
-          {"rel": "preconnect", "href": "https://fonts.gstatic.com", "crossorigin": true},
-          {"rel": "stylesheet", "href": "https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&display=swap"},
-          {"rel": "stylesheet", "href": "https://fonts.googleapis.com/icon?family=Material+Icons"}
-        ]}
-      />
-      {element}
+      <Container>
+        <Helmet
+          title="Honey badgers BJJ team"
+          meta={[
+            {"name": "description", "content": "Тренировки по BJJ в Москве"}
+          ]}
+          link={[
+            {"rel": "preconnect", "href": "https://fonts.googleapis.com"},
+            {"rel": "preconnect", "href": "https://fonts.gstatic.com", "crossorigin": true},
+            {"rel": "stylesheet", "href": "https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&display=swap"},
+            {"rel": "stylesheet", "href": "https://fonts.googleapis.com/icon?family=Material+Icons"}
+          ]}
+        />
+        <Header />
+        {element}
+      </Container>
     </StyledWrapper>
   </ThemeProvider>
 );
