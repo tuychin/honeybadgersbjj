@@ -34,8 +34,10 @@ const theme = createTheme({
   },
 });
 
-const StyleWrapper = styled('div')(
+const StyledWrapper = styled('div')(
   ({theme}) => `
+    min-width: 100vh;
+    min-height: 100vh;
     color: ${theme.palette.text.primary};
     background-color: ${theme.palette.background.default};
   `,
@@ -43,7 +45,7 @@ const StyleWrapper = styled('div')(
 
 export const wrapPages = ({element}) => (
   <ThemeProvider theme={theme}>
-    <StyleWrapper>
+    <StyledWrapper>
       <Helmet
         title="Honey badgers BJJ team"
         meta={[
@@ -57,6 +59,6 @@ export const wrapPages = ({element}) => (
         ]}
       />
       {element}
-    </StyleWrapper>
+    </StyledWrapper>
   </ThemeProvider>
 );
