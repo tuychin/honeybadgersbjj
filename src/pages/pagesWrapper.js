@@ -68,6 +68,7 @@ const theme = createTheme({
 });
 
 const StyledWrapper = styled('div')(({theme}) => ({
+  position: 'relative',
   minWidth: '100vh',
   minHeight: '100vh',
   paddingTop: 70,
