@@ -32,6 +32,37 @@ const theme = createTheme({
       contrastText: '#EEEEEE',
     },
   },
+  typography: {
+    fontFamily: [
+      'Oswald',
+      '"Helvetica Neue"',
+      'Roboto',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+    fontFamily: '"Helvetica Neue", Roboto, sans-serif',
+    h1: {
+      fontFamily: 'Oswald, Roboto, sans-serif',
+    },
+    h2: {
+      fontFamily: 'Oswald, Roboto, sans-serif',
+    },
+    h3: {
+      fontFamily: 'Oswald, Roboto, sans-serif',
+    },
+    h4: {
+      fontFamily: 'Oswald, Roboto, sans-serif',
+    },
+    h5: {
+      fontFamily: 'Oswald, Roboto, sans-serif',
+    },
+    h6: {
+      fontFamily: 'Oswald, Roboto, sans-serif',
+    },
+  },
 });
 
 const StyledWrapper = styled('div')(
@@ -54,7 +85,7 @@ export const wrapPages = ({element}) => (
         link={[
           {"rel": "preconnect", "href": "https://fonts.googleapis.com"},
           {"rel": "preconnect", "href": "https://fonts.gstatic.com", "crossorigin": true},
-          {"rel": "stylesheet", "href": "https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"},
+          {"rel": "stylesheet", "href": "https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&display=swap"},
           {"rel": "stylesheet", "href": "https://fonts.googleapis.com/icon?family=Material+Icons"}
         ]}
       />

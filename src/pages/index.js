@@ -9,6 +9,7 @@ const MainPage = () => {
   return (
     <main>
       <Typography
+      variant="h1"
         sx={{
           color: 'text.primary',
         }}
