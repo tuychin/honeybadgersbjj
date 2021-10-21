@@ -37,7 +37,7 @@ const theme = createTheme({
   typography: {
     fontFamily: [
       'Oswald',
-      '"Helvetica Neue"',
+      'Montserrat',
       'Roboto',
       'Arial',
       'sans-serif',
@@ -45,24 +45,31 @@ const theme = createTheme({
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
     ].join(','),
-    fontFamily: '"Helvetica Neue", Roboto, sans-serif',
+    fontFamily: 'Montserrat, Roboto, sans-serif',
+    fontWeight: 500,
     h1: {
       fontFamily: 'Oswald, Roboto, sans-serif',
+      fontWeight: 700,
     },
     h2: {
       fontFamily: 'Oswald, Roboto, sans-serif',
+      fontWeight: 700,
     },
     h3: {
       fontFamily: 'Oswald, Roboto, sans-serif',
+      fontWeight: 700,
     },
     h4: {
       fontFamily: 'Oswald, Roboto, sans-serif',
+      fontWeight: 700,
     },
     h5: {
       fontFamily: 'Oswald, Roboto, sans-serif',
+      fontWeight: 700,
     },
     h6: {
       fontFamily: 'Oswald, Roboto, sans-serif',
+      fontWeight: 700,
     },
   },
 });
@@ -89,7 +96,7 @@ export const wrapPages = ({element}) => (
           link={[
             {"rel": "preconnect", "href": "https://fonts.googleapis.com"},
             {"rel": "preconnect", "href": "https://fonts.gstatic.com", "crossorigin": true},
-            {"rel": "stylesheet", "href": "https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&display=swap"},
+            {"rel": "stylesheet", "href": "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&family=Oswald:wght@300;500;700&display=swap"},
             {"rel": "stylesheet", "href": "https://fonts.googleapis.com/icon?family=Material+Icons"}
           ]}
         />
