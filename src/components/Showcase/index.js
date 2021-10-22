@@ -31,9 +31,18 @@ const StyledWrapper = styled('div')(({theme}) => ({
   position: 'absolute',
   top: 0,
   left: 0,
-  width: '100vw',
+  width: '100%',
   height: '100vh',
   overflow: 'hidden',
+}));
+
+const Overlay = styled('div')(() => ({
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100vh',
+  backgroundColor: 'rgba(0, 0, 0, 0.8)',
 }));
 
 const TextWrapper = styled('div')(({theme}) => ({
@@ -61,15 +70,6 @@ const StyledImage = styled('img')(() => ({
 const StyledTypography = styled(Typography)(() => ({
   marginBottom: 20,
   textAlign: 'center',
-}));
-
-const Overlay = styled('div')(() => ({
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  width: '100vw',
-  height: '100vh',
-  backgroundColor: 'rgba(0, 0, 0, 0.8)',
 }));
 
 const Showcase = () => {
