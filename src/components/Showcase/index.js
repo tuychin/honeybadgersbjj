@@ -24,9 +24,8 @@ const animateBackground = (target) => {
   });
 }
 
-const StyledWrapper = styled('div')(() => ({
+const StyledWrapper = styled('div')(({theme}) => ({
   display: 'flex',
-  flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
   position: 'absolute',
@@ -34,22 +33,34 @@ const StyledWrapper = styled('div')(() => ({
   left: 0,
   width: '100vw',
   height: '100vh',
-  padding: '40px 20%',
   overflow: 'hidden',
+}));
+
+const TextWrapper = styled('div')(({theme}) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '800px',
+  zIndex: 0,
+  [theme.breakpoints.between('xs', 'md')]: {
+    width: '100%',
+    padding: '10px',
+  },
 }));
 
 const StyledImage = styled('img')(() => ({
   position: 'absolute',
   top: '50%',
   left: '50%',
-  width: '100vw',
-  height: '100vh',
+  objectFit: 'cover',
+  height: '100%',
+  width: '100%',
 }));
 
 const StyledTypography = styled(Typography)(() => ({
   marginBottom: 20,
   textAlign: 'center',
-  zIndex: 0,
 }));
 
 const Overlay = styled('div')(() => ({
@@ -72,17 +83,19 @@ const Showcase = () => {
     <StyledWrapper>
       <StyledImage ref={imageRef} src={showcase} alt="bjj image" />
       <Overlay />
-      <StyledTypography variant="h1">
-        HONEY BADGERS
-      </StyledTypography>
-      <StyledTypography>
-        Медоед занесён в книгу рекордов Гиннеса, как самое бесстрашное животное в мире.
-        Он готов напасть на кого угодно, особенно почуяв опасность.
-        Без опаски питается ядовитыми змеями, в том числе и кобрами.
-        Хочешь быть как медоед?
-        <br />
-        Запишись на первую беплатную тренировку по бразильскому джиу-джитсу.
-      </StyledTypography>
+      <TextWrapper>
+        <StyledTypography variant="h1">
+          HONEY BADGERS
+        </StyledTypography>
+        <StyledTypography>
+          Медоед занесён в книгу рекордов Гиннеса, как самое бесстрашное животное в мире.
+          Он готов напасть на кого угодно, особенно почуяв опасность.
+          Без опаски питается ядовитыми змеями, в том числе и кобрами.
+          Хочешь быть как медоед?
+          <br />
+          Запишись на первую беплатную тренировку по бразильскому джиу-джитсу.
+        </StyledTypography>
+      </TextWrapper>
     </StyledWrapper>
   )
 }

@@ -1,12 +1,17 @@
 import * as React from 'react';
 import {Helmet} from 'react-helmet';
-import {styled, createTheme, ThemeProvider} from '@mui/material/styles';
+import {
+  styled,
+  createTheme,
+  ThemeProvider,
+  responsiveFontSizes,
+} from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import Header from '../components/Header';
 
-const theme = createTheme({
+let theme = createTheme({
   palette: {
     mode: 'dark',
     common: {
@@ -73,6 +78,8 @@ const theme = createTheme({
     },
   },
 });
+
+theme = responsiveFontSizes(theme);
 
 const StyledWrapper = styled('div')(({theme}) => ({
   position: 'relative',
