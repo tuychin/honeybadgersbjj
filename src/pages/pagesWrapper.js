@@ -83,8 +83,6 @@ theme = responsiveFontSizes(theme);
 
 const StyledWrapper = styled('div')(({theme}) => ({
   position: 'relative',
-  minWidth: '100vh',
-  minHeight: '100vh',
   paddingTop: 70,
   color: theme.palette.text.primary,
   backgroundColor: theme.palette.background.default,
