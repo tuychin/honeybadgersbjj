@@ -1,8 +1,28 @@
-import * as React from 'react';
+import React, {useEffect, useRef} from 'react';
+import anime from 'animejs/lib/anime.es.js';
 import {styled} from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import showcase from '../../images/showcase.jpg';
+
+const animateBackground = (target) => {
+  anime({
+    targets: target,
+    easing: 'easeInOutQuad',
+    scale: {
+      value: [1, 1.2],
+      duration: 16000,
+    },
+    translateX: {
+      value: '-50%',
+      duration: 0,
+    },
+    translateY: {
+      value: '-50%',
+      duration: 0,
+    },
+  });
+}
 
 const StyledWrapper = styled('div')(() => ({
   display: 'flex',
@@ -15,8 +35,15 @@ const StyledWrapper = styled('div')(() => ({
   width: '100vw',
   height: '100vh',
   padding: '40px 20%',
-  background: `url(${showcase}) 100% 100% no-repeat`,
-  backgroundSize: 'cover',
+  overflow: 'hidden',
+}));
+
+const StyledImage = styled('img')(() => ({
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  width: '100vw',
+  height: '100vh',
 }));
 
 const StyledTypography = styled(Typography)(() => ({
@@ -35,8 +62,15 @@ const Overlay = styled('div')(() => ({
 }));
 
 const Showcase = () => {
+  const imageRef = useRef(null);
+  
+  useEffect(() => {
+    animateBackground(imageRef.current);
+  }, []);
+
   return (
     <StyledWrapper>
+      <StyledImage ref={imageRef} src={showcase} alt="bjj image" />
       <Overlay />
       <StyledTypography variant="h1">
         HONEY BADGERS
