@@ -43,8 +43,10 @@ const Header = () => {
     setIsNavbarOpen(true);
   };
 
-  const handleCloseNavbar = () => {
-    setIsNavbarOpen(false);
+  const handleCloseNavbar = (evt, closeElements) => {
+    if (closeElements.includes(evt.target)) {
+      setIsNavbarOpen(false);
+    }
   };
 
   return (
