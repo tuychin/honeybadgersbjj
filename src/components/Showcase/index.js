@@ -1,7 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import anime from 'animejs/lib/anime.es.js';
 import {styled} from '@mui/material/styles';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import showcase from '../../images/showcase.jpg';
 
@@ -24,7 +23,7 @@ const animateBackground = (target) => {
   });
 }
 
-const StyledWrapper = styled('div')(({theme}) => ({
+const StyledWrapper = styled('div')(() => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',

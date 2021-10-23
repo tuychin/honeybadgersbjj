@@ -40,16 +40,6 @@ let theme = createTheme({
     },
   },
   typography: {
-    fontFamily: [
-      'Oswald',
-      'Montserrat',
-      'Roboto',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
     fontFamily: 'Montserrat, Roboto, sans-serif',
     fontWeight: 500,
     h1: {
