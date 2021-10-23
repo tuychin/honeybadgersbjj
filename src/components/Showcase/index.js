@@ -2,6 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import anime from 'animejs/lib/anime.es.js';
 import {styled} from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 import showcase from '../../images/showcase.jpg';
 
 const animateBackground = (target) => {
@@ -66,9 +67,12 @@ const StyledImage = styled('img')(() => ({
   width: '100%',
 }));
 
-const StyledTypography = styled(Typography)(() => ({
-  marginBottom: 20,
+const StyledTypography = styled(Typography)(({theme}) => ({
+  marginBottom: 40,
   textAlign: 'center',
+  [theme.breakpoints.between('xs', 'md')]: {
+    marginBottom: 20,
+  },
 }));
 
 const Showcase = () => {
@@ -89,11 +93,12 @@ const Showcase = () => {
         <StyledTypography>
           Медоед занесён в книгу рекордов Гиннеса, как самое бесстрашное животное в мире.
           Он готов напасть на кого угодно, особенно почуяв опасность.
-          Без опаски питается ядовитыми змеями, в том числе и кобрами.
           Хочешь быть как медоед?
-          <br />
           Запишись на первую беплатную тренировку по бразильскому джиу-джитсу.
         </StyledTypography>
+        <Button size="large" variant="contained" color="primary">
+          Записаться
+        </Button>
       </TextWrapper>
     </StyledWrapper>
   )

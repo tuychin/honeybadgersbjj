@@ -42,6 +42,10 @@ let theme = createTheme({
   typography: {
     fontFamily: 'Montserrat, Roboto, sans-serif',
     fontWeight: 500,
+    button: {
+      fontFamily: 'Montserrat, Roboto, sans-serif',
+      fontWeight: 700,
+    },
     h1: {
       fontFamily: 'Oswald, Roboto, sans-serif',
       fontWeight: 700,
