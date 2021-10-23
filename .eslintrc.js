@@ -72,7 +72,6 @@ module.exports = {
         "default-case": "error",
         "default-case-last": "error",
         "default-param-last": "error",
-        "dot-location": "error",
         "dot-notation": [
             "error",
             {
@@ -146,6 +145,7 @@ module.exports = {
             "always"
         ],
         "newline-before-return": "error",
+        "newline-per-chained-call": "error",
         "no-alert": "error",
         "no-array-constructor": "error",
         "no-await-in-loop": "error",
