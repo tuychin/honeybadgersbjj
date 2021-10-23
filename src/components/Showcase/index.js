@@ -3,6 +3,8 @@ import anime from 'animejs/lib/anime.es.js';
 import {styled} from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+
+import ContactForm from '../ContactForm';
 import showcase from '../../images/showcase.jpg';
 
 const animateBackground = (target) => {
@@ -24,7 +26,7 @@ const animateBackground = (target) => {
   });
 }
 
-const StyledWrapper = styled('div')(() => ({
+const ShowcaseWrapper = styled('div')(() => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -36,16 +38,7 @@ const StyledWrapper = styled('div')(() => ({
   overflow: 'hidden',
 }));
 
-const Overlay = styled('div')(() => ({
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  width: '100%',
-  height: '100vh',
-  backgroundColor: 'rgba(0, 0, 0, 0.8)',
-}));
-
-const TextWrapper = styled('div')(({theme}) => ({
+const ContentWrapper = styled('div')(({theme}) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
@@ -75,18 +68,36 @@ const StyledTypography = styled(Typography)(({theme}) => ({
   },
 }));
 
+const Overlay = styled('div')(() => ({
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100vh',
+  backgroundColor: 'rgba(0, 0, 0, 0.8)',
+}));
+
 const Showcase = () => {
+  const [isContactFormOpen, setIsContactFormOpen] = React.useState(false);
   const imageRef = useRef(null);
   
   useEffect(() => {
     animateBackground(imageRef.current);
   }, []);
 
+  const handleContactFormOpen = () => {
+    setIsContactFormOpen(true);
+  };
+
+  const handleContactFormClose = () => {
+    setIsContactFormOpen(false);
+  };
+
   return (
-    <StyledWrapper>
+    <ShowcaseWrapper>
       <StyledImage ref={imageRef} src={showcase} alt="bjj image" />
       <Overlay />
-      <TextWrapper>
+      <ContentWrapper>
         <StyledTypography variant="h1">
           HONEY BADGERS
         </StyledTypography>
@@ -96,11 +107,17 @@ const Showcase = () => {
           Хочешь быть как медоед?
           Запишись на первую беплатную тренировку по бразильскому джиу-джитсу.
         </StyledTypography>
-        <Button size="large" variant="contained" color="primary">
+        <Button
+          size="large"
+          variant="contained"
+          color="primary"
+          onClick={handleContactFormOpen}
+        >
           Записаться
         </Button>
-      </TextWrapper>
-    </StyledWrapper>
+      </ContentWrapper>
+      <ContactForm isOpen={isContactFormOpen} handleClose={handleContactFormClose} />
+    </ShowcaseWrapper>
   )
 }
 
