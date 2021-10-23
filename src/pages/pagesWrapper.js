@@ -46,6 +46,10 @@ let theme = createTheme({
       fontFamily: 'Montserrat, Roboto, sans-serif',
       fontWeight: 700,
     },
+    subtitle1: {
+      fontFamily: 'Montserrat, Roboto, sans-serif',
+      fontWeight: 700,
+    },
     h1: {
       fontFamily: 'Oswald, Roboto, sans-serif',
       fontWeight: 700,

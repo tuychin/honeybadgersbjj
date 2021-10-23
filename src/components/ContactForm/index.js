@@ -25,7 +25,7 @@ Transition.displayName = 'Transition';
 const ContentWrapper = styled(Container)(({theme}) => ({
   display: 'flex',
   justifyContent: 'space-between',
-  alignItems: 'center',
+  alignItems: 'start',
   padding: '40px 0px',
   [theme.breakpoints.between('xs', 'md')]: {
     flexDirection: 'column',
@@ -60,7 +60,7 @@ const ContactForm = ({isOpen, handleClose}) => {
         <Box sx={{width: '100%', marginRight: {xs: '0px', md: '40px'}}}>
           <Box sx={{marginBottom: '20px'}}>
             <Typography variant="subtitle1" component="div">
-              По телефону
+              По телефону:
             </Typography>
             <Link href="tel:+79256355455">
               +7 (925) 635 54 55
@@ -69,7 +69,7 @@ const ContactForm = ({isOpen, handleClose}) => {
           <Divider />
           <Box sx={{margin: '20px 0px'}}>
             <Typography variant="subtitle1" component="div">
-              Через Telegram
+              Через Telegram:
             </Typography>
             <Link href="https://t.me/tuychin_r" target="_blank" rel="noopener">
               @tuychin_r
@@ -78,7 +78,7 @@ const ContactForm = ({isOpen, handleClose}) => {
           <Divider />
           <Box sx={{marginTop: '20px'}}>
             <Typography variant="subtitle1" component="div">
-              Через Instagram Direct
+              Через Instagram Direct:
             </Typography>
             <Link href="https://www.instagram.com/tuychin.r" target="_blank" rel="noopener">
               tuychin.r
@@ -86,6 +86,27 @@ const ContactForm = ({isOpen, handleClose}) => {
           </Box>
         </Box>
         <Box sx={{width: '100%'}}>
+          <Box sx={{marginBottom: '20px'}}>
+            <Typography variant="subtitle1" component="div">
+              Расписание:
+            </Typography>
+            <Typography>
+              ПН, СР, ПТ - с 20:00 до 22:00
+            </Typography>
+            <Typography>
+              СБ - с 10:00 до 12:00 (день борьбы)
+            </Typography>
+          </Box>
+          <Divider />
+          <Box sx={{marginBottom: '20px'}}>
+            <Typography variant="subtitle1" component="div">
+              Адрес:
+            </Typography>
+            <Typography>
+              Улица Ленинская Слобода, 19
+            </Typography>
+          </Box>
+          <Divider />
           <YandexMap coordinates={MAP_COORDINATES} />
         </Box>
       </ContentWrapper>
