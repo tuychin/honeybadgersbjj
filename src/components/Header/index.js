@@ -13,13 +13,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'open',
-})(({theme, open}) => ({
+  shouldForwardProp: (prop) => prop !== 'isNavbarOpen',
+})(({theme, isNavbarOpen}) => ({
   transition: theme.transitions.create(['margin', 'width'], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
-  ...(open && {
+  ...(isNavbarOpen && {
     width: `calc(100% - ${drawerWidth}px)`,
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.easeOut,
@@ -49,7 +49,7 @@ const Header = () => {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={isNavbarOpen}>
         <Toolbar>
           {/** <Logo src={logo} alt="Honey Badgers BJJ Logo"/> **/}
           <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div">
@@ -60,7 +60,7 @@ const Header = () => {
             aria-label="open drawer"
             edge="end"
             onClick={handleOpenNavbar}
-            sx={{ ...(open && { display: 'none' }) }}
+            sx={{ ...(isNavbarOpen && { display: 'none' }) }}
           >
             <MenuIcon />
           </IconButton>
