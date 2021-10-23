@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import YandexMap from '../YandexMap';
 import {styled} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -12,6 +13,8 @@ import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 import Link from '@mui/material/Link';
+
+const MAP_COORDINATES = [55.708303, 37.652822];
 
 const Transition = React.forwardRef((props, ref) => {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -54,9 +57,9 @@ const ContactForm = ({isOpen, handleClose}) => {
         </Toolbar>
       </AppBar>
       <ContentWrapper>
-        <Box sx={{width: '100%'}}>
+        <Box sx={{width: '100%', marginRight: {xs: '0px', md: '40px'}}}>
           <Box sx={{marginBottom: '20px'}}>
-            <Typography variant="h6" component="div">
+            <Typography variant="subtitle1" component="div">
               По телефону
             </Typography>
             <Link href="tel:+79256355455">
@@ -65,7 +68,7 @@ const ContactForm = ({isOpen, handleClose}) => {
           </Box>
           <Divider />
           <Box sx={{margin: '20px 0px'}}>
-            <Typography variant="h6" component="div">
+            <Typography variant="subtitle1" component="div">
               Через Telegram
             </Typography>
             <Link href="https://t.me/tuychin_r" target="_blank" rel="noopener">
@@ -74,7 +77,7 @@ const ContactForm = ({isOpen, handleClose}) => {
           </Box>
           <Divider />
           <Box sx={{marginTop: '20px'}}>
-            <Typography variant="h6" component="div">
+            <Typography variant="subtitle1" component="div">
               Через Instagram Direct
             </Typography>
             <Link href="https://www.instagram.com/tuychin.r" target="_blank" rel="noopener">
@@ -83,7 +86,7 @@ const ContactForm = ({isOpen, handleClose}) => {
           </Box>
         </Box>
         <Box sx={{width: '100%'}}>
-          
+          <YandexMap coordinates={MAP_COORDINATES} />
         </Box>
       </ContentWrapper>
     </Dialog>
