@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {styled} from '@mui/material/styles';
-import Box from '@mui/material/Box';
+import { styled } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -14,7 +13,7 @@ const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'isNavbarOpen',
-})(({theme, isNavbarOpen}) => ({
+})(({ theme, isNavbarOpen }) => ({
   transition: theme.transitions.create(['margin', 'width'], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -50,27 +49,24 @@ const Header = () => {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      <AppBar position="fixed" open={isNavbarOpen}>
-        <Toolbar>
-          {/** <Logo src={logo} alt="Honey Badgers BJJ Logo"/> **/}
-          <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div">
-            HONEY BADGERS
-          </Typography>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="end"
-            onClick={handleOpenNavbar}
-            sx={{ ...(isNavbarOpen && { display: 'none' }) }}
-          >
-            <MenuIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
+    <AppBar position="fixed" open={isNavbarOpen}>
+      <Toolbar>
+        {/** <Logo src={logo} alt="Honey Badgers BJJ Logo"/> **/}
+        <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div">
+          HONEY BADGERS
+        </Typography>
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          edge="end"
+          onClick={handleOpenNavbar}
+          sx={{ ...(isNavbarOpen && { display: 'none' }) }}>
+          <MenuIcon />
+        </IconButton>
+      </Toolbar>
       <Navbar isOpen={isNavbarOpen} handleClose={handleCloseNavbar} />
-    </Box>
+    </AppBar>
   );
-}
+};
 
 export default Header;
