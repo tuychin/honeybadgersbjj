@@ -7,10 +7,7 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 
 const drawerWidth = 240;
 
@@ -78,11 +75,8 @@ const Navbar = ({
         </DrawerHeader>
         <Divider />
         <List>
-          {['Главная', 'Преимущества', 'О нас', 'Контакты'].map((text, index) => (
+          {['Главная', 'Преимущества', 'О нас', 'Контакты'].map((text) => (
             <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
