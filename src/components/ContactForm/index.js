@@ -98,7 +98,7 @@ const ContactForm = ({isOpen, handleClose}) => {
             </Typography>
           </Box>
           <Divider />
-          <Box sx={{marginBottom: '20px'}}>
+          <Box sx={{margin: '20px 0px'}}>
             <Typography variant="subtitle1" component="div">
               Адрес:
             </Typography>
