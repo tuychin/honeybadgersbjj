@@ -57,7 +57,11 @@ const ContactForm = ({isOpen, handleClose}) => {
         </Toolbar>
       </AppBar>
       <ContentWrapper>
-        <Box sx={{width: '100%', marginRight: {xs: '0px', md: '40px'}}}>
+        <Box sx={{
+          width: '100%',
+          marginRight: {xs: '0px', md: '40px'},
+          marginBottom: {xs: '20px', md: '0px'}
+        }}>
           <Box sx={{marginBottom: '20px'}}>
             <Typography variant="subtitle1" component="div">
               По телефону:
@@ -76,7 +80,7 @@ const ContactForm = ({isOpen, handleClose}) => {
             </Link>
           </Box>
           <Divider />
-          <Box sx={{marginTop: '20px'}}>
+          <Box sx={{margin: '20px 0px'}}>
             <Typography variant="subtitle1" component="div">
               Через Instagram Direct:
             </Typography>
@@ -84,7 +88,9 @@ const ContactForm = ({isOpen, handleClose}) => {
               tuychin.r
             </Link>
           </Box>
+          <Divider sx={{display: {xs: 'block', md: 'none'}}} />
         </Box>
+
         <Box sx={{width: '100%'}}>
           <Box sx={{marginBottom: '20px'}}>
             <Typography variant="subtitle1" component="div">
@@ -106,7 +112,6 @@ const ContactForm = ({isOpen, handleClose}) => {
               Улица Ленинская Слобода, 19
             </Typography>
           </Box>
-          <Divider />
           <YandexMap coordinates={MAP_COORDINATES} />
         </Box>
       </ContentWrapper>
