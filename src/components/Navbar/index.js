@@ -5,7 +5,7 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import CloseIcon from '@mui/icons-material/Close';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -73,7 +73,7 @@ const Navbar = ({
               ]);
             }}
           >
-            <ChevronRightIcon ref={closeIconRef} />
+            <CloseIcon ref={closeIconRef} />
           </IconButton>
         </DrawerHeader>
         <Divider />
