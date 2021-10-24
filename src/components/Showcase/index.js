@@ -1,6 +1,6 @@
-import React, {useEffect, useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 import anime from 'animejs/lib/anime.es.js';
-import {styled} from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
@@ -24,7 +24,7 @@ const animateBackground = (target) => {
       duration: 0,
     },
   });
-}
+};
 
 const ShowcaseWrapper = styled('div')(() => ({
   display: 'flex',
@@ -38,7 +38,7 @@ const ShowcaseWrapper = styled('div')(() => ({
   overflow: 'hidden',
 }));
 
-const ContentWrapper = styled('div')(({theme}) => ({
+const ContentWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
@@ -60,7 +60,7 @@ const StyledImage = styled('img')(() => ({
   width: '100%',
 }));
 
-const StyledTypography = styled(Typography)(({theme}) => ({
+const StyledTypography = styled(Typography)(({ theme }) => ({
   marginBottom: 40,
   textAlign: 'center',
   [theme.breakpoints.between('xs', 'md')]: {
@@ -80,7 +80,7 @@ const Overlay = styled('div')(() => ({
 const Showcase = () => {
   const [isContactFormOpen, setIsContactFormOpen] = React.useState(false);
   const imageRef = useRef(null);
-  
+
   useEffect(() => {
     animateBackground(imageRef.current);
   }, []);
@@ -98,27 +98,19 @@ const Showcase = () => {
       <StyledImage ref={imageRef} src={showcase} alt="bjj image" />
       <Overlay />
       <ContentWrapper>
-        <StyledTypography variant="h1">
-          HONEY BADGERS
-        </StyledTypography>
+        <StyledTypography variant="h1">HONEY BADGERS</StyledTypography>
         <StyledTypography>
-          Медоед занесён в книгу рекордов Гиннеса, как самое бесстрашное животное в мире.
-          Он готов напасть на кого угодно, особенно почуяв опасность.
-          Хочешь быть как медоед?
-          Запишись на первую беплатную тренировку по бразильскому джиу-джитсу.
+          Медоед занесён в книгу рекордов Гиннеса, как самое бесстрашное животное в мире. Он способен вести схватку один
+          против нескольких львов и есть королевских кобр. Хочешь быть как медоед? Запишись на тренировку по
+          бразильскому джиу-джитсу.
         </StyledTypography>
-        <Button
-          size="large"
-          variant="contained"
-          color="primary"
-          onClick={handleContactFormOpen}
-        >
+        <Button size="large" variant="contained" color="primary" onClick={handleContactFormOpen}>
           Записаться
         </Button>
       </ContentWrapper>
       <ContactForm isOpen={isContactFormOpen} handleClose={handleContactFormClose} />
     </ShowcaseWrapper>
-  )
-}
+  );
+};
 
-export default Showcase
+export default Showcase;
