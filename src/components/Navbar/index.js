@@ -1,6 +1,6 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import {styled} from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
@@ -11,7 +11,7 @@ import ListItemText from '@mui/material/ListItemText';
 
 const drawerWidth = 240;
 
-const DrawerHeader = styled('div')(({theme}) => ({
+const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   padding: theme.spacing(0, 1),
@@ -29,24 +29,21 @@ const CloseOverlay = styled('div')(() => ({
   zIndex: 1100,
 }));
 
-const Navbar = ({
-  handleClose,
-  isOpen,
-}) => {
+const Navbar = ({ handleClose, isOpen }) => {
   const closeOverlayRef = useRef(null);
   const closeButtonRef = useRef(null);
   const closeIconRef = useRef(null);
 
   return (
     <>
-      {isOpen && <CloseOverlay
-        ref={closeOverlayRef}
-        onClick={(evt) => {
-          handleClose(evt, [
-            closeOverlayRef.current,
-          ]);
-        }}
-      />}
+      {isOpen && (
+        <CloseOverlay
+          ref={closeOverlayRef}
+          onClick={(evt) => {
+            handleClose(evt, [closeOverlayRef.current]);
+          }}
+        />
+      )}
       <Drawer
         sx={{
           width: drawerWidth,
@@ -58,24 +55,19 @@ const Navbar = ({
         }}
         variant="persistent"
         anchor="right"
-        open={isOpen}
-      >
+        open={isOpen}>
         <DrawerHeader>
           <IconButton
             ref={closeButtonRef}
             onClick={(evt) => {
-              handleClose(evt, [
-                closeButtonRef.current,
-                closeIconRef.current,
-              ]);
-            }}
-          >
+              handleClose(evt, [closeButtonRef.current, closeIconRef.current]);
+            }}>
             <CloseIcon ref={closeIconRef} />
           </IconButton>
         </DrawerHeader>
         <Divider />
         <List>
-          {['Главная', 'Преимущества', 'О нас', 'Контакты'].map((text) => (
+          {['Главная', 'Новости', 'О нас'].map((text) => (
             <ListItem button key={text}>
               <ListItemText primary={text} />
             </ListItem>
@@ -84,7 +76,7 @@ const Navbar = ({
       </Drawer>
     </>
   );
-}
+};
 
 Navbar.propTypes = {
   handleClose: PropTypes.func.isRequired,
