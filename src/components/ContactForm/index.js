@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 import Link from '@mui/material/Link';
+import ErrorBoundary from '../ErrorBoundary';
 
 const MAP_COORDINATES = [55.708303, 37.652822];
 
@@ -112,7 +113,9 @@ const ContactForm = ({isOpen, handleClose}) => {
               Улица Ленинская Слобода, 19
             </Typography>
           </Box>
-          <YandexMap coordinates={MAP_COORDINATES} />
+          <ErrorBoundary>
+            <YandexMap coordinates={MAP_COORDINATES} />
+          </ErrorBoundary>
         </Box>
       </ContentWrapper>
     </Dialog>
