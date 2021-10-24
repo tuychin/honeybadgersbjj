@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
-import ContactForm from '../ContactForm';
+import ContactModal from '../ContactModal';
 import showcase from '../../images/showcase.jpg';
 
 const animateBackground = (target) => {
@@ -78,19 +78,19 @@ const Overlay = styled('div')(() => ({
 }));
 
 const Showcase = () => {
-  const [isContactFormOpen, setIsContactFormOpen] = React.useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = React.useState(false);
   const imageRef = useRef(null);
 
   useEffect(() => {
     animateBackground(imageRef.current);
   }, []);
 
-  const handleContactFormOpen = () => {
-    setIsContactFormOpen(true);
+  const handleContactModalOpen = () => {
+    setIsContactModalOpen(true);
   };
 
-  const handleContactFormClose = () => {
-    setIsContactFormOpen(false);
+  const handleContactModalClose = () => {
+    setIsContactModalOpen(false);
   };
 
   return (
@@ -104,11 +104,11 @@ const Showcase = () => {
           против нескольких львов и есть королевских кобр. Хочешь быть как медоед? Запишись на тренировку по
           бразильскому джиу-джитсу.
         </StyledTypography>
-        <Button size="large" variant="contained" color="primary" onClick={handleContactFormOpen}>
+        <Button size="large" variant="contained" color="primary" onClick={handleContactModalOpen}>
           Записаться
         </Button>
       </ContentWrapper>
-      <ContactForm isOpen={isContactFormOpen} handleClose={handleContactFormClose} />
+      <ContactModal isOpen={isContactModalOpen} handleClose={handleContactModalClose} />
     </ShowcaseWrapper>
   );
 };
