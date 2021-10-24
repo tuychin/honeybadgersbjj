@@ -1,13 +1,12 @@
-import * as React from 'react';
+import React from 'react';
 import { styled } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import Navbar from '../Navbar';
-// import logo from '../../images/logo.png';
+import logo from '../../images/logo.png';
 
 const drawerWidth = 240;
 
@@ -28,12 +27,10 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-/*
- * const Logo = styled('img')(() => ({
- *   maxWidth: 60,
- *   marginRight: 20,
- * }));
- */
+const Logo = styled('img')(() => ({
+  maxWidth: 60,
+  marginRight: 20,
+}));
 
 const Header = () => {
   const [isNavbarOpen, setIsNavbarOpen] = React.useState(false);
@@ -50,11 +47,8 @@ const Header = () => {
 
   return (
     <AppBar position="fixed" open={isNavbarOpen}>
-      <Toolbar>
-        {/** <Logo src={logo} alt="Honey Badgers BJJ Logo"/> **/}
-        <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div">
-          HONEY BADGERS
-        </Typography>
+      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Logo src={logo} alt="Honey Badgers BJJ Logo" />
         <IconButton
           color="inherit"
           aria-label="open drawer"
