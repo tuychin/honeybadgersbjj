@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
+import React, {useRef} from 'react';
 import PropTypes from 'prop-types';
-import { styled } from '@mui/material/styles';
+import {styled} from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
@@ -11,7 +11,7 @@ import ListItemText from '@mui/material/ListItemText';
 
 const drawerWidth = 240;
 
-const DrawerHeader = styled('div')(({ theme }) => ({
+const DrawerHeader = styled('div')(({theme}) => ({
   display: 'flex',
   alignItems: 'center',
   padding: theme.spacing(0, 1),
@@ -29,7 +29,7 @@ const CloseOverlay = styled('div')(() => ({
   zIndex: 1100,
 }));
 
-const Navbar = ({ handleClose, isOpen }) => {
+const Navbar = ({handleClose, isOpen}) => {
   const closeOverlayRef = useRef(null);
   const closeButtonRef = useRef(null);
   const closeIconRef = useRef(null);
