@@ -1,14 +1,10 @@
 import React, { useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import anime from 'animejs/lib/anime.es';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import {
-  selectIsContactModalOpen,
-  openContactModal,
-  closeContactModal,
-} from '../ContactModal/contactModalSlice';
+import { openContactModal } from '../ContactModal/contactModalSlice';
 
 import ContactModal from '../ContactModal';
 import showcase from '../../images/showcase.jpg';
@@ -84,7 +80,6 @@ const Overlay = styled('div')(() => ({
 }));
 
 const Showcase = () => {
-  const IsContactModalOpen = useSelector(selectIsContactModalOpen);
   const dispatch = useDispatch();
 
   const imageRef = useRef(null);
@@ -95,10 +90,6 @@ const Showcase = () => {
 
   const handleContactModalOpen = () => {
     dispatch(openContactModal());
-  };
-
-  const handleContactModalClose = () => {
-    dispatch(closeContactModal());
   };
 
   return (
@@ -116,7 +107,7 @@ const Showcase = () => {
           Записаться
         </Button>
       </ContentWrapper>
-      <ContactModal isOpen={IsContactModalOpen} handleClose={handleContactModalClose} />
+      <ContactModal />
     </ShowcaseWrapper>
   );
 };

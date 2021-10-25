@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -12,6 +12,11 @@ import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 import Link from '@mui/material/Link';
+import {
+  selectIsContactModalOpen,
+  closeContactModal,
+} from './contactModalSlice';
+
 import YandexMap from '../YandexMap';
 import ErrorBoundary from '../ErrorBoundary';
 
@@ -32,80 +37,89 @@ const ContentWrapper = styled(Container)(({ theme }) => ({
   },
 }));
 
-const ContactModal = ({ isOpen, handleClose }) => (
-  <Dialog fullScreen open={isOpen} onClose={handleClose} TransitionComponent={Transition}>
-    <AppBar sx={{ position: 'relative' }}>
-      <Toolbar>
-        <Typography sx={{ ml: 2, flex: 1 }} variant="h5" component="div">
-          Как записаться?
-        </Typography>
-        <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
-          <CloseIcon />
-        </IconButton>
-      </Toolbar>
-    </AppBar>
-    <ContentWrapper>
-      <Box
-        sx={{
-          width: '100%',
-          marginRight: { xs: '0px', md: '40px' },
-          marginBottom: { xs: '20px', md: '0px' },
-        }}
-      >
-        <Box sx={{ marginBottom: '20px' }}>
-          <Typography variant="subtitle1" component="div">
-            По телефону:
-          </Typography>
-          <Link href="tel:+79256355455">+7 (925) 635 54 55</Link>
-        </Box>
-        <Divider />
-        <Box sx={{ margin: '20px 0px' }}>
-          <Typography variant="subtitle1" component="div">
-            Через Telegram:
-          </Typography>
-          <Link href="https://t.me/tuychin_r" target="_blank" rel="noopener">
-            @tuychin_r
-          </Link>
-        </Box>
-        <Divider />
-        <Box sx={{ margin: '20px 0px' }}>
-          <Typography variant="subtitle1" component="div">
-            Через Instagram Direct:
-          </Typography>
-          <Link href="https://www.instagram.com/tuychin.r" target="_blank" rel="noopener">
-            tuychin.r
-          </Link>
-        </Box>
-        <Divider sx={{ display: { xs: 'block', md: 'none' } }} />
-      </Box>
+const ContactModal = () => {
+  const dispatch = useDispatch();
+  const isOpen = useSelector(selectIsContactModalOpen);
 
-      <Box sx={{ width: '100%' }}>
-        <Box sx={{ marginBottom: '20px' }}>
-          <Typography variant="subtitle1" component="div">
-            Расписание:
-          </Typography>
-          <Typography>ПН, СР, ПТ - с 20:00 до 22:00</Typography>
-          <Typography>СБ - с 10:00 до 12:00 (день борьбы)</Typography>
-        </Box>
-        <Divider />
-        <Box sx={{ margin: '20px 0px' }}>
-          <Typography variant="subtitle1" component="div">
-            Адрес:
-          </Typography>
-          <Typography>Улица Ленинская Слобода, 19</Typography>
-          <Typography>(Т.Ц. Омега Плаза)</Typography>
-        </Box>
-        <ErrorBoundary>
-          <YandexMap coordinates={MAP_COORDINATES} />
-        </ErrorBoundary>
-      </Box>
-    </ContentWrapper>
-  </Dialog>
-);
+  const handleClose = () => {
+    dispatch(closeContactModal());
+  };
 
-ContactModal.propTypes = {
-  handleClose: PropTypes.func.isRequired,
-  isOpen: PropTypes.bool.isRequired,
+  return (
+    <Dialog
+      fullScreen
+      open={isOpen}
+      onClose={handleClose}
+      TransitionComponent={Transition}
+    >
+      <AppBar sx={{ position: 'relative' }}>
+        <Toolbar>
+          <Typography sx={{ ml: 2, flex: 1 }} variant="h5" component="div">
+            Как записаться?
+          </Typography>
+          <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+            <CloseIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      <ContentWrapper>
+        <Box
+          sx={{
+            width: '100%',
+            marginRight: { xs: '0px', md: '40px' },
+            marginBottom: { xs: '20px', md: '0px' },
+          }}
+        >
+          <Box sx={{ marginBottom: '20px' }}>
+            <Typography variant="subtitle1" component="div">
+              По телефону:
+            </Typography>
+            <Link href="tel:+79256355455">+7 (925) 635 54 55</Link>
+          </Box>
+          <Divider />
+          <Box sx={{ margin: '20px 0px' }}>
+            <Typography variant="subtitle1" component="div">
+              Через Telegram:
+            </Typography>
+            <Link href="https://t.me/tuychin_r" target="_blank" rel="noopener">
+              @tuychin_r
+            </Link>
+          </Box>
+          <Divider />
+          <Box sx={{ margin: '20px 0px' }}>
+            <Typography variant="subtitle1" component="div">
+              Через Instagram Direct:
+            </Typography>
+            <Link href="https://www.instagram.com/tuychin.r" target="_blank" rel="noopener">
+              tuychin.r
+            </Link>
+          </Box>
+          <Divider sx={{ display: { xs: 'block', md: 'none' } }} />
+        </Box>
+
+        <Box sx={{ width: '100%' }}>
+          <Box sx={{ marginBottom: '20px' }}>
+            <Typography variant="subtitle1" component="div">
+              Расписание:
+            </Typography>
+            <Typography>ПН, СР, ПТ - с 20:00 до 22:00</Typography>
+            <Typography>СБ - с 10:00 до 12:00 (день борьбы)</Typography>
+          </Box>
+          <Divider />
+          <Box sx={{ margin: '20px 0px' }}>
+            <Typography variant="subtitle1" component="div">
+              Адрес:
+            </Typography>
+            <Typography>Улица Ленинская Слобода, 19</Typography>
+            <Typography>(Т.Ц. Омега Плаза)</Typography>
+          </Box>
+          <ErrorBoundary>
+            <YandexMap coordinates={MAP_COORDINATES} />
+          </ErrorBoundary>
+        </Box>
+      </ContentWrapper>
+    </Dialog>
+  );
 };
 
 export default ContactModal;
