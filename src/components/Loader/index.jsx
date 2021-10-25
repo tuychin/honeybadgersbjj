@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {styled} from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import CircularProgress from '@mui/material/CircularProgress';
 
 const Spinner = styled(CircularProgress)(() => ({
@@ -10,9 +10,7 @@ const Spinner = styled(CircularProgress)(() => ({
   transform: 'translate(-50%, -50%)',
 }));
 
-const Loader = ({isActive = true}) => {
-  return isActive && <Spinner />;
-}
+const Loader = ({ isActive = true }) => isActive && <Spinner />;
 
 Loader.propTypes = {
   isActive: PropTypes.bool,

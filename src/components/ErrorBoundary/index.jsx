@@ -4,37 +4,38 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 
 class ErrorBoundary extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
-    this.state = {error: null, errorInfo: null};
+    this.state = { error: null, errorInfo: null };
   }
-  
-  componentDidCatch (error, errorInfo) {
+
+  componentDidCatch(error, errorInfo) {
     this.setState({
       error,
       errorInfo,
-    })
+    });
   }
-  
-  render () {
-    return this.state.errorInfo ? (
-      <Paper sx={{padding: '10px'}}>
+
+  render() {
+    const { children } = this.props;
+    const { errorInfo, error } = this.state;
+
+    return errorInfo ? (
+      <Paper sx={{ padding: '10px' }}>
         <Typography>Модуль сломался...</Typography>
-        <details style={{whiteSpace: 'pre-wrap'}}>
+        <details style={{ whiteSpace: 'pre-wrap' }}>
           <summary>Ошибка</summary>
-          {this.state.error && this.state.error.toString()}
+          {error && error.toString()}
           <br />
-          {this.state.errorInfo.componentStack}
+          {errorInfo.componentStack}
         </details>
       </Paper>
-    ) : (
-      this.props.children
-    );
+    ) : children;
   }
 }
 
 ErrorBoundary.propTypes = {
   children: PropTypes.element.isRequired,
-}
+};
 
 export default ErrorBoundary;

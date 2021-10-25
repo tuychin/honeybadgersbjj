@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import anime from 'animejs/lib/anime.es.js';
+import anime from 'animejs/lib/anime.es';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -108,9 +108,9 @@ const Showcase = () => {
       <ContentWrapper>
         <StyledTypography variant="h1">HONEY BADGERS</StyledTypography>
         <StyledTypography>
-          Медоед занесён в книгу рекордов Гиннеса, как самое бесстрашное животное в мире. Он способен вести схватку один
-          против нескольких львов и есть королевских кобр. Хочешь быть как медоед? Запишись на тренировку по
-          бразильскому джиу-джитсу.
+          Медоед занесён в книгу рекордов Гиннеса, как самое бесстрашное животное в мире.
+          Он способен вести схватку один против нескольких львов и есть королевских кобр.
+          Хочешь быть как медоед? Запишись на тренировку по бразильскому джиу-джитсу.
         </StyledTypography>
         <Button size="large" variant="contained" color="primary" onClick={handleContactModalOpen}>
           Записаться

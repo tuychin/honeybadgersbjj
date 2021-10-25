@@ -54,7 +54,8 @@ const Header = () => {
           aria-label="open drawer"
           edge="end"
           onClick={handleOpenNavbar}
-          sx={{ ...(isNavbarOpen && { display: 'none' }) }}>
+          sx={{ ...(isNavbarOpen && { display: 'none' }) }}
+        >
           <MenuIcon />
         </IconButton>
       </Toolbar>
