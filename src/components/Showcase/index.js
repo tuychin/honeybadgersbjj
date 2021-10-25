@@ -1,8 +1,14 @@
 import React, { useEffect, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import anime from 'animejs/lib/anime.es.js';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import {
+  selectIsContactModalOpen,
+  openContactModal,
+  closeContactModal,
+} from '../ContactModal/contactModalSlice';
 
 import ContactModal from '../ContactModal';
 import showcase from '../../images/showcase.jpg';
@@ -78,7 +84,9 @@ const Overlay = styled('div')(() => ({
 }));
 
 const Showcase = () => {
-  const [isContactModalOpen, setIsContactModalOpen] = React.useState(false);
+  const IsContactModalOpen = useSelector(selectIsContactModalOpen);
+  const dispatch = useDispatch();
+
   const imageRef = useRef(null);
 
   useEffect(() => {
@@ -86,11 +94,11 @@ const Showcase = () => {
   }, []);
 
   const handleContactModalOpen = () => {
-    setIsContactModalOpen(true);
+    dispatch(openContactModal());
   };
 
   const handleContactModalClose = () => {
-    setIsContactModalOpen(false);
+    dispatch(closeContactModal());
   };
 
   return (
@@ -108,7 +116,7 @@ const Showcase = () => {
           Записаться
         </Button>
       </ContentWrapper>
-      <ContactModal isOpen={isContactModalOpen} handleClose={handleContactModalClose} />
+      <ContactModal isOpen={IsContactModalOpen} handleClose={handleContactModalClose} />
     </ShowcaseWrapper>
   );
 };
