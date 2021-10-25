@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
 import { styled } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -8,6 +8,10 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+import {
+  selectIsNavbarOpen,
+  closeNavbar,
+} from './navbarSlice';
 
 const drawerWidth = 240;
 
@@ -29,10 +33,19 @@ const CloseOverlay = styled('div')(() => ({
   zIndex: 1100,
 }));
 
-const Navbar = ({ handleClose, isOpen }) => {
+const Navbar = () => {
+  const dispatch = useDispatch();
+  const isOpen = useSelector(selectIsNavbarOpen);
+
   const closeOverlayRef = useRef(null);
   const closeButtonRef = useRef(null);
   const closeIconRef = useRef(null);
+
+  const handleClose = (evt, closeElements) => {
+    if (closeElements.includes(evt.currentTarget)) {
+      dispatch(closeNavbar());
+    }
+  };
 
   return (
     <>
@@ -78,11 +91,6 @@ const Navbar = ({ handleClose, isOpen }) => {
       </Drawer>
     </>
   );
-};
-
-Navbar.propTypes = {
-  handleClose: PropTypes.func.isRequired,
-  isOpen: PropTypes.bool.isRequired,
 };
 
 export default Navbar;

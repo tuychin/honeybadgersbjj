@@ -1,9 +1,14 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { styled } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import {
+  selectIsNavbarOpen,
+  openNavbar,
+} from '../Navbar/navbarSlice';
 
 import Navbar from '../Navbar';
 import logo from '../../images/logo.png';
@@ -33,16 +38,11 @@ const Logo = styled('img')(() => ({
 }));
 
 const Header = () => {
-  const [isNavbarOpen, setIsNavbarOpen] = React.useState(false);
+  const dispatch = useDispatch();
+  const isNavbarOpen = useSelector(selectIsNavbarOpen);
 
   const handleOpenNavbar = () => {
-    setIsNavbarOpen(true);
-  };
-
-  const handleCloseNavbar = (evt, closeElements) => {
-    if (closeElements.includes(evt.target)) {
-      setIsNavbarOpen(false);
-    }
+    dispatch(openNavbar(true));
   };
 
   return (
@@ -59,7 +59,7 @@ const Header = () => {
           <MenuIcon />
         </IconButton>
       </Toolbar>
-      <Navbar isOpen={isNavbarOpen} handleClose={handleCloseNavbar} />
+      <Navbar />
     </AppBar>
   );
 };
