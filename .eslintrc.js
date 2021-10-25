@@ -19,6 +19,6 @@ module.exports = {
     "react"
   ],
   "rules": {
-    "no-param-reassign": false,
+    "no-param-reassign": 0,
   }
 };
