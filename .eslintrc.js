@@ -20,5 +20,6 @@ module.exports = {
   ],
   "rules": {
     "no-param-reassign": 0,
+    "react/jsx-props-no-spreading": 0,
   }
 };
