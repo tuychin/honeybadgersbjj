@@ -104,7 +104,7 @@ const Showcase = () => {
           Хочешь быть как медоед? Запишись на тренировку по бразильскому джиу-джитсу.
         </StyledTypography>
         <Button size="large" variant="contained" color="primary" onClick={handleContactModalOpen}>
-          Записаться
+          Как записаться?
         </Button>
       </ContentWrapper>
       <ContactModal />
