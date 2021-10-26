@@ -29,10 +29,10 @@ let theme = createTheme({
       secondary: '#222831',
     },
     primary: {
-      light: '#00ADB5',
-      main: '#00ADB5',
-      dark: '#00ADB5',
-      contrastText: '#EEEEEE',
+      light: '#FFD56B',
+      main: '#FFD56B',
+      dark: '#FFD56B',
+      contrastText: '#222831',
     },
     secondary: {
       light: '#393E46',
