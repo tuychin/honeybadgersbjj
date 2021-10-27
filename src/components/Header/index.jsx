@@ -4,6 +4,7 @@ import { useTheme, styled } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
@@ -42,7 +43,6 @@ const AppBar = styled(MuiAppBar, {
 
 const Logo = styled('img')(() => ({
   maxWidth: 60,
-  marginRight: 20,
 }));
 
 const Header = () => {
@@ -58,7 +58,12 @@ const Header = () => {
   return (
     <AppBar position="fixed" open={isMobileNavbarOpen}>
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Logo src={logo} alt="Honey Badgers BJJ Logo" />
+        <Link
+          sx={{ display: 'flex', alignItems: 'center' }}
+          href="/"
+        >
+          <Logo src={logo} alt="Honey Badgers BJJ Logo" />
+        </Link>
         {isTablet ? (
           <IconButton
             color="inherit"
