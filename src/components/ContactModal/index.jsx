@@ -102,16 +102,23 @@ const ContactModal = () => {
             <Typography variant="subtitle1" component="div">
               Расписание:
             </Typography>
-            <Typography>ПН, СР, ПТ - с 20:00 до 22:00</Typography>
-            <Typography>СБ - с 10:00 до 12:00 (день борьбы)</Typography>
+            <Typography>
+              ПН, СР, ПТ - с 20:00 до 22:00
+            </Typography>
+          </Box>
+          <Divider />
+          <Box sx={{ margin: '20px 0px' }}>
+            <Typography variant="subtitle1" component="div">
+              Стоимость:
+            </Typography>
+            <Typography>6.000₽ в месяц</Typography>
           </Box>
           <Divider />
           <Box sx={{ margin: '20px 0px' }}>
             <Typography variant="subtitle1" component="div">
               Адрес:
             </Typography>
-            <Typography>Улица Ленинская Слобода, 19</Typography>
-            <Typography>(Т.Ц. Омега Плаза)</Typography>
+            <Typography>Улица Ленинская Слобода, 19 (Т.Ц. Омега Плаза)</Typography>
           </Box>
           <ErrorBoundary>
             <YandexMap coordinates={MAP_COORDINATES} />
