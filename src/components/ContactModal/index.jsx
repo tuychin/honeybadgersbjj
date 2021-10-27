@@ -109,9 +109,9 @@ const ContactModal = () => {
           <Divider />
           <Box sx={{ margin: '20px 0px' }}>
             <Typography variant="subtitle1" component="div">
-              Стоимость:
+              Абонемент:
             </Typography>
-            <Typography>6.000₽ в месяц</Typography>
+            <Typography>6.000₽/месяц</Typography>
           </Box>
           <Divider />
           <Box sx={{ margin: '20px 0px' }}>
