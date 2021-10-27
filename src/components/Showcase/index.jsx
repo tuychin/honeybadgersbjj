@@ -28,7 +28,7 @@ const animateBackground = (target) => {
   });
 };
 
-const ShowcaseWrapper = styled('div')(() => ({
+const ShowcaseWrapper = styled('section')(() => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
