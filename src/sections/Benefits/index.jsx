@@ -10,6 +10,8 @@ const BenefitsWrapper = styled('section')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  paddingTop: theme.spacing(3),
+  paddingBottom: theme.spacing(3),
   backgroundColor: theme.palette.background.default,
   borderTop: `1px solid ${theme.palette.grey[900]}`,
 }));
@@ -24,7 +26,7 @@ const Benefits = () => (
   <BenefitsWrapper sx={{ boxShadow: 3 }}>
     <Typography
       sx={{
-        my: {
+        mb: {
           xs: 5,
           md: 8,
         },
