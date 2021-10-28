@@ -4,6 +4,8 @@ import anime from 'animejs/lib/anime.es';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+
 import { openContactModal } from '../../components/ContactModal/contactModalSlice';
 
 import ContactModal from '../../components/ContactModal';
@@ -32,7 +34,9 @@ const ShowcaseWrapper = styled('section')(() => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  position: 'relative',
+  position: 'fixed',
+  top: 0,
+  left: 0,
   width: '100%',
   height: '100vh',
   overflow: 'hidden',
@@ -91,22 +95,32 @@ const Showcase = () => {
   };
 
   return (
-    <ShowcaseWrapper>
-      <StyledImage ref={imageRef} src={showcase} alt="bjj image" />
-      <Overlay />
-      <ContentWrapper>
-        <StyledTypography variant="h1">HONEY BADGERS</StyledTypography>
-        <StyledTypography>
-          Медоед занесён в книгу рекордов Гиннеса, как самое бесстрашное животное в мире.
-          Он способен вести схватку один против нескольких львов и есть королевских кобр.
-          Хочешь быть как медоед? Запишись на тренировку по бразильскому джиу-джитсу.
-        </StyledTypography>
-        <Button size="large" variant="contained" color="primary" onClick={handleContactModalOpen}>
-          Как записаться?
-        </Button>
-      </ContentWrapper>
-      <ContactModal />
-    </ShowcaseWrapper>
+    <>
+      <Box
+        sx={{
+          position: 'relative',
+          width: '100%',
+          height: '100vh',
+          zIndex: -9,
+        }}
+      />
+      <ShowcaseWrapper>
+        <StyledImage ref={imageRef} src={showcase} alt="bjj image" />
+        <Overlay />
+        <ContentWrapper>
+          <StyledTypography variant="h1">HONEY BADGERS</StyledTypography>
+          <StyledTypography>
+            Медоед занесён в книгу рекордов Гиннеса, как самое бесстрашное животное в мире.
+            Он способен вести схватку один против нескольких львов и есть королевских кобр.
+            Хочешь быть как медоед? Запишись на тренировку по бразильскому джиу-джитсу.
+          </StyledTypography>
+          <Button size="large" variant="contained" color="primary" onClick={handleContactModalOpen}>
+            Как записаться?
+          </Button>
+        </ContentWrapper>
+        <ContactModal />
+      </ShowcaseWrapper>
+    </>
   );
 };
 

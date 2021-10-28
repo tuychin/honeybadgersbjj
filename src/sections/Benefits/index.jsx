@@ -6,10 +6,13 @@ import Typography from '@mui/material/Typography';
 import benefitsMock from './mock-data';
 import BenefitItem from '../../components/BenefitItem';
 
-const BenefitsWrapper = styled('section')(() => ({
+const BenefitsWrapper = styled('section')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  position: 'relative',
+  backgroundColor: theme.palette.background.default,
+  borderTop: `1px solid ${theme.palette.grey[900]}`,
 }));
 
 const BenefitsInner = styled(Container)(() => ({
@@ -19,7 +22,7 @@ const BenefitsInner = styled(Container)(() => ({
 }));
 
 const Benefits = () => (
-  <BenefitsWrapper>
+  <BenefitsWrapper sx={{ boxShadow: 3 }}>
     <Typography
       sx={{
         my: {
