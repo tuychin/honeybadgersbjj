@@ -7,7 +7,6 @@ import {
   ThemeProvider,
   responsiveFontSizes,
 } from '@mui/material/styles';
-import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import store from '../store';
 
@@ -83,7 +82,6 @@ theme = responsiveFontSizes(theme);
 
 const StyledWrapper = styled('div')(() => ({
   position: 'relative',
-  paddingTop: 70,
   color: theme.palette.text.primary,
   backgroundColor: theme.palette.background.default,
 }));
@@ -93,22 +91,20 @@ export const wrapPages = ({ element }) => (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <StyledWrapper>
-        <Container>
-          <Helmet
-            title="Honey badgers BJJ team"
-            meta={[
-              { name: 'description', content: 'Тренировки по BJJ в Москве' },
-            ]}
-            link={[
-              { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-              { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
-              { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&family=Oswald:wght@300;500;700&display=swap' },
-              { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' },
-            ]}
-          />
-          <Header />
-          {element}
-        </Container>
+        <Helmet
+          title="Honey badgers BJJ team"
+          meta={[
+            { name: 'description', content: 'Тренировки по BJJ в Москве' },
+          ]}
+          link={[
+            { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+            { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
+            { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&family=Oswald:wght@300;500;700&display=swap' },
+            { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' },
+          ]}
+        />
+        <Header />
+        {element}
       </StyledWrapper>
     </ThemeProvider>
   </Provider>
