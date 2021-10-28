@@ -23,7 +23,7 @@ const Navbar = ({ pages }) => {
     <DesktopNavbar>
       {pages.map(({ name, href }) => (
         <Link
-          sx={{ marginRight: '20px' }}
+          sx={{ mr: 3 }}
           href={href}
           color="inherit"
           underline="hover"

@@ -61,10 +61,10 @@ const StyledImage = styled('img')(() => ({
 }));
 
 const StyledTypography = styled(Typography)(({ theme }) => ({
-  marginBottom: 40,
+  marginBottom: theme.spacing(5),
   textAlign: 'center',
   [theme.breakpoints.between('xs', 'md')]: {
-    marginBottom: 20,
+    marginBottom: theme.spacing(3),
   },
 }));
 

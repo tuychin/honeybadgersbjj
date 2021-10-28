@@ -105,7 +105,7 @@ const MobileNavbar = ({ pages }) => {
         </List>
         <Button
           sx={{
-            margin: '0px 16px',
+            mx: 2,
           }}
           size="large"
           variant="outlined"
