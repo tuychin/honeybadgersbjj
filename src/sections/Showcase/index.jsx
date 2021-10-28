@@ -38,6 +38,7 @@ const ShowcaseWrapper = styled('section')(() => ({
   left: 0,
   width: '100%',
   height: '100vh',
+  minHeight: '568px',
   overflow: 'hidden',
 }));
 
@@ -77,6 +78,7 @@ const Overlay = styled('div')(() => ({
   left: 0,
   width: '100%',
   height: '100vh',
+  minHeight: '568px',
   backgroundColor: 'rgba(0, 0, 0, 0.8)',
 }));
 
