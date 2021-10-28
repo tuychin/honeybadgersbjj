@@ -35,7 +35,7 @@ const BenefitItem = ({ img, title, description }) => (
 );
 
 BenefitItem.propTypes = {
-  img: PropTypes.element,
+  img: PropTypes.string,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 };
