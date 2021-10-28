@@ -10,7 +10,6 @@ const BenefitsWrapper = styled('section')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  position: 'relative',
   backgroundColor: theme.palette.background.default,
   borderTop: `1px solid ${theme.palette.grey[900]}`,
 }));
