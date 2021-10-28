@@ -4,9 +4,9 @@ import anime from 'animejs/lib/anime.es';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { openContactModal } from '../ContactModal/contactModalSlice';
+import { openContactModal } from '../../components/ContactModal/contactModalSlice';
 
-import ContactModal from '../ContactModal';
+import ContactModal from '../../components/ContactModal';
 import showcase from '../../images/showcase.jpg';
 
 const animateBackground = (target) => {

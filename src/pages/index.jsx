@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Showcase from '../components/Showcase';
+import Showcase from '../sections/Showcase';
 
 const MainPage = () => (
   <main>
