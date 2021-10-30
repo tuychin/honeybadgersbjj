@@ -15,23 +15,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-favicons',
-      options: {
-        logo: './src/images/logo.png',
-        appName: 'Honey Badgers BJJ',
-        background: '#fff',
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: true,
-          favicons: true,
-          yandex: true,
-          windows: true
-        }
-      }
-    },
-    {
       resolve: 'gatsby-plugin-wrap-pages',
       options: {
         wrapperName: ['pagesWrapper.js'],
