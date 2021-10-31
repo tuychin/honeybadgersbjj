@@ -1,8 +1,9 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+
+import useInstPosts from '../../hooks/useInstPosts';
 
 const PhotosWrapper = styled('section')(({ theme }) => ({
   display: 'flex',
@@ -22,27 +23,7 @@ const PhotosInner = styled(Container)(() => ({
 
 // eslint-disable-next-line arrow-body-style
 const Photos = () => {
-  const data = useStaticQuery(graphql`
-    query MyQuery {
-      userInstData {
-        instData {
-          medias {
-            node {
-              thumbnail_src
-              shortcode
-              edge_media_to_caption {
-                edges {
-                  node {
-                    text
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
+  const { instPosts } = useInstPosts();
 
   return (
     <PhotosWrapper>
@@ -59,7 +40,18 @@ const Photos = () => {
         Инстаграм
       </Typography>
       <PhotosInner>
-        {JSON.stringify(data)}
+        <ol>
+          {instPosts?.map(({ postId, thumbnailSrc, description }) => (
+            <li key={postId}>
+              <ul>
+                <li>{`postId: ${postId}`}</li>
+                <li>{`thumbnailSrc: ${thumbnailSrc}`}</li>
+                <li>{`description: ${description}`}</li>
+              </ul>
+              <br />
+            </li>
+          ))}
+        </ol>
       </PhotosInner>
     </PhotosWrapper>
   );
