@@ -13,6 +13,7 @@ const instagram = require('instagram-scraping');
 exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
   const { createNode } = actions;
   const { medias } = await instagram.scrapeUserPage('moscowbjj');
+  const mediasPortion = medias.slice(0, 6);
 
   const nodeMeta = {
     id: createNodeId('userInstPosts'),
@@ -20,12 +21,12 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
     children: [],
     internal: {
       type: 'UserInstPosts',
-      contentDigest: createContentDigest(medias),
+      contentDigest: createContentDigest(mediasPortion),
     },
   };
 
   const nodeData = {
-    instPosts: medias,
+    instPosts: mediasPortion,
   };
 
   const node = { ...nodeData, ...nodeMeta };
