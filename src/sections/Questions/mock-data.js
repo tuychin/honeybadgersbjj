@@ -1,4 +1,4 @@
-export const questionsData = [
+export const questionsMock = [
   {
     question: 'Что такое бразильское джиу-джитсу (BJJ)?',
     answer: 'Бразильское джиу-джитсу (BJJ) - боевое искусство и международное спортивное единоборство, основой которого является борьба в партере, а также болевые и удушающие приёмы.',
@@ -17,4 +17,4 @@ export const questionsData = [
   },
 ];
 
-export default questionsData;
+export default questionsMock;

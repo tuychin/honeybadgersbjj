@@ -7,7 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-import questions from './mock-data';
+import questionsMock from './mock-data';
 
 const QuestionsWrapper = styled('section')(({ theme }) => ({
   display: 'flex',
@@ -40,7 +40,7 @@ const Questions = () => (
       Вопросы
     </Typography>
     <QuestionsInner>
-      {questions.map(({ question, answer }) => (
+      {questionsMock.map(({ question, answer }) => (
         <Accordion sx={{ width: '100%' }} key={question}>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography
