@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Provider } from 'react-redux';
 import {
@@ -11,6 +11,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import store from '../store';
 
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 let theme = createTheme({
   palette: {
@@ -105,6 +106,7 @@ export const wrapPages = ({ element }) => (
         />
         <Header />
         {element}
+        <Footer />
       </StyledWrapper>
     </ThemeProvider>
   </Provider>

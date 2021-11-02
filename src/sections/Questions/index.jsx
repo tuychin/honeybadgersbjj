@@ -14,8 +14,11 @@ const QuestionsWrapper = styled('section')(({ theme }) => ({
   flexDirection: 'column',
   alignItems: 'center',
   paddingTop: theme.spacing(3),
-  paddingBottom: theme.spacing(3),
+  paddingBottom: theme.spacing(8),
   backgroundColor: theme.palette.background.default,
+  [theme.breakpoints.between('xs', 'md')]: {
+    paddingBottom: theme.spacing(5),
+  },
 }));
 
 const QuestionsInner = styled(Container)(() => ({
