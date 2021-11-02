@@ -17,7 +17,8 @@ const QuestionsWrapper = styled('section')(({ theme }) => ({
   paddingBottom: theme.spacing(12),
   backgroundColor: theme.palette.background.default,
   [theme.breakpoints.between('xs', 'md')]: {
-    paddingBottom: theme.spacing(5),
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
   },
 }));
 

@@ -20,6 +20,10 @@ const CoachWrapper = styled('section')(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
+  [theme.breakpoints.between('xs', 'md')]: {
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
+  },
 }));
 
 const CoachInner = styled(Container)(({ theme }) => ({

@@ -14,6 +14,10 @@ const BenefitsWrapper = styled('section')(({ theme }) => ({
   paddingBottom: theme.spacing(12),
   backgroundColor: theme.palette.background.default,
   borderTop: `1px solid ${theme.palette.grey[900]}`,
+  [theme.breakpoints.between('xs', 'md')]: {
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
+  },
 }));
 
 const BenefitsInner = styled(Container)(() => ({
