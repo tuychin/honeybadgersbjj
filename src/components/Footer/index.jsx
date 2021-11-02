@@ -18,15 +18,29 @@ const QuestionsWrapper = styled('footer')(({ theme }) => ({
   padding: theme.spacing(3),
   backgroundColor: theme.palette.background.paper,
   borderTop: `1px solid ${theme.palette.grey[900]}`,
+  [theme.breakpoints.between('xs', 'sm')]: {
+    flexDirection: 'column',
+  },
 }));
 
 const Questions = () => (
   <QuestionsWrapper sx={{ boxShadow: 3 }}>
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{
+      display: 'flex',
+      flexDirection: {
+        xs: 'column',
+        sm: 'row',
+      },
+    }}
+    >
       <Box sx={{
         mr: {
           xs: 0,
-          md: 5,
+          sm: 5,
+        },
+        mb: {
+          xs: 3,
+          sm: 0,
         },
       }}
       >
@@ -70,6 +84,7 @@ const Questions = () => (
       display: 'flex',
       flexDirection: 'column',
       position: 'relative',
+      mt: { xs: 6, sm: 0 },
     }}
     >
       <Link href="/privacy-policy">
@@ -81,9 +96,14 @@ const Questions = () => (
       </Link>
 
       <Typography
-        sx={{ position: 'absolute', bottom: 0, right: 0 }}
+        sx={{
+          position: { xs: 'relative', sm: 'absolute' },
+          bottom: 0,
+          right: 0,
+          textAlign: { xs: 'left', sm: 'right' },
+          mt: 3,
+        }}
         variant="caption"
-        align="right"
       >
         {`©${new Date().getFullYear()} Honey badgers BJJ`}
       </Typography>
