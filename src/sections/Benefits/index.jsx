@@ -41,11 +41,17 @@ const Benefits = () => (
       Преимущества
     </Typography>
     <BenefitsInner>
-      {benefitsMock.map(({ img, title, description }) => (
+      {benefitsMock.map(({
+        img,
+        title,
+        description,
+        tags,
+      }) => (
         <BenefitItem
           img={img}
           title={title}
           description={description}
+          tags={tags}
           key={title}
         />
       ))}

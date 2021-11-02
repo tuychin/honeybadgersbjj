@@ -5,6 +5,8 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Chip from '@mui/material/Chip';
 
 const Inner = styled('div')(() => ({
   display: 'flex',
@@ -13,7 +15,12 @@ const Inner = styled('div')(() => ({
   height: '100%',
 }));
 
-const BenefitItem = ({ img, title, description }) => (
+const BenefitItem = ({
+  img,
+  title,
+  description,
+  tags,
+}) => (
   <Card sx={{ maxWidth: 335, m: 3 }}>
     <Inner>
       <CardMedia
@@ -22,13 +29,22 @@ const BenefitItem = ({ img, title, description }) => (
         image={img}
         alt="sauna"
       />
-      <CardContent>
+      <CardContent sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
         <Typography gutterBottom variant="h5" component="div">
           {title}
         </Typography>
-        <Typography variant="body2" color="text.primary">
+        <Typography
+          sx={{ mb: 1 }}
+          variant="body2"
+          color="text.primary"
+        >
           {description}
         </Typography>
+        <Box sx={{ mt: 'auto' }}>
+          {tags.map((tagText) => (
+            <Chip label={tagText} size="small" key={tagText} />
+          ))}
+        </Box>
       </CardContent>
     </Inner>
   </Card>
@@ -38,6 +54,7 @@ BenefitItem.propTypes = {
   img: PropTypes.string,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  tags: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default BenefitItem;
