@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 
 import Loader from '../Loader';
 
-const YandexMap = ({ coordinates }) => {
+const YandexMap = ({ coordinates, description }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const mapChecker = () => {
@@ -43,7 +43,7 @@ const YandexMap = ({ coordinates }) => {
             modules={['geoObject.addon.balloon']}
             geometry={coordinates}
             properties={{
-              balloonContentBody: 'Honey badger BJJ team.<br>Улица Ленинская Слобода, 19',
+              balloonContentBody: description,
             }}
             options={{
               preset: 'islands#redSportIcon',
@@ -56,7 +56,8 @@ const YandexMap = ({ coordinates }) => {
 };
 
 YandexMap.propTypes = {
-  coordinates: PropTypes.arrayOf(PropTypes.number),
+  coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 export default YandexMap;

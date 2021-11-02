@@ -17,10 +17,14 @@ import {
   closeContactModal,
 } from './contactModalSlice';
 
+import {
+  Location,
+  TelNumber,
+  Telegram,
+  Instagram,
+} from '../../const';
 import YandexMap from '../YandexMap';
 import ErrorBoundary from '../ErrorBoundary';
-
-const MAP_COORDINATES = [55.708303, 37.652822];
 
 const Transition = React.forwardRef((props, ref) => <Slide direction="up" ref={ref} {...props} />);
 
@@ -74,24 +78,28 @@ const ContactModal = () => {
             <Typography variant="subtitle1" component="div">
               По телефону:
             </Typography>
-            <Link href="tel:+79256355455">+7 (925) 635 54 55</Link>
+            <Link href={TelNumber.HREF}>
+              {TelNumber.LABEL}
+            </Link>
           </Box>
           <Divider />
+
           <Box sx={{ margin: '20px 0px' }}>
             <Typography variant="subtitle1" component="div">
               Через Telegram:
             </Typography>
-            <Link href="https://t.me/tuychin_r" target="_blank" rel="noopener">
-              @tuychin_r
+            <Link href={Telegram.HREF} target="_blank" rel="noopener">
+              {Telegram.LABEL}
             </Link>
           </Box>
           <Divider />
+
           <Box sx={{ margin: '20px 0px' }}>
             <Typography variant="subtitle1" component="div">
               Через Instagram Direct:
             </Typography>
-            <Link href="https://www.instagram.com/tuychin.r" target="_blank" rel="noopener">
-              tuychin.r
+            <Link href={Instagram.HREF} target="_blank" rel="noopener">
+              {Instagram.LABEL}
             </Link>
           </Box>
           <Divider sx={{ display: { xs: 'block', md: 'none' } }} />
@@ -107,6 +115,7 @@ const ContactModal = () => {
             </Typography>
           </Box>
           <Divider />
+
           <Box sx={{ margin: '20px 0px' }}>
             <Typography variant="subtitle1" component="div">
               Абонемент:
@@ -114,14 +123,18 @@ const ContactModal = () => {
             <Typography>6.000₽/месяц</Typography>
           </Box>
           <Divider />
+
           <Box sx={{ margin: '20px 0px' }}>
             <Typography variant="subtitle1" component="div">
               Адрес:
             </Typography>
-            <Typography>Улица Ленинская Слобода, 19 (Т.Ц. Омега Плаза)</Typography>
+            <Typography>{Location.ADDRESS}</Typography>
           </Box>
           <ErrorBoundary>
-            <YandexMap coordinates={MAP_COORDINATES} />
+            <YandexMap
+              coordinates={Location.COORDINATES}
+              description={`Honey badgers BJJ. ${Location.ADDRESS}`}
+            />
           </ErrorBoundary>
         </Box>
       </ContentWrapper>

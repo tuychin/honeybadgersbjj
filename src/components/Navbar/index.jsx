@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { styled } from '@mui/material/styles';
 import Link from '@mui/material/Link';
@@ -7,12 +6,14 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { openContactModal } from '../ContactModal/contactModalSlice';
 
+import { PAGES } from '../../const';
+
 const DesktopNavbar = styled('div')(() => ({
   display: 'flex',
   alignItems: 'center',
 }));
 
-const Navbar = ({ pages }) => {
+const Navbar = () => {
   const dispatch = useDispatch();
 
   const handleContactModalOpen = () => {
@@ -21,7 +22,7 @@ const Navbar = ({ pages }) => {
 
   return (
     <DesktopNavbar>
-      {pages.map(({ name, href }) => (
+      {PAGES.map(({ name, href }) => (
         <Link
           sx={{ mr: 3 }}
           href={href}
@@ -46,13 +47,6 @@ const Navbar = ({ pages }) => {
       </Button>
     </DesktopNavbar>
   );
-};
-
-Navbar.propTypes = {
-  pages: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    href: PropTypes.string,
-  })),
 };
 
 export default Navbar;

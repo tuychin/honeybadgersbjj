@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { styled } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
@@ -16,6 +15,7 @@ import {
   closeMobileNavbar,
 } from './mobileNavbarSlice';
 import { openContactModal } from '../ContactModal/contactModalSlice';
+import { PAGES } from '../../const';
 
 const DRAWER_WIDTH = 240;
 
@@ -37,7 +37,7 @@ const CloseOverlay = styled('div')(() => ({
   zIndex: 1100,
 }));
 
-const MobileNavbar = ({ pages }) => {
+const MobileNavbar = () => {
   const dispatch = useDispatch();
   const isOpen = useSelector(selectIsMobileNavbarOpen);
 
@@ -90,7 +90,7 @@ const MobileNavbar = ({ pages }) => {
         </DrawerHeader>
         <Divider />
         <List>
-          {pages.map(({ name, href }) => (
+          {PAGES.map(({ name, href }) => (
             <Link
               href={href}
               color="inherit"
@@ -117,13 +117,6 @@ const MobileNavbar = ({ pages }) => {
       </Drawer>
     </>
   );
-};
-
-MobileNavbar.propTypes = {
-  pages: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    href: PropTypes.string,
-  })),
 };
 
 export default MobileNavbar;

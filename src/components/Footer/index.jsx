@@ -7,10 +7,12 @@ import IconButton from '@mui/material/IconButton';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TelegramIcon from '@mui/icons-material/Telegram';
 
-const FOOTER_PAGES = [
-  { name: 'Новости', href: '/news' },
-  { name: 'О нас', href: '/about' },
-];
+import {
+  PAGES,
+  TelNumber,
+  Telegram,
+  Instagram,
+} from '../../const';
 
 const QuestionsWrapper = styled('footer')(({ theme }) => ({
   display: 'flex',
@@ -48,16 +50,18 @@ const Questions = () => (
           Контакты:
         </Typography>
 
-        <Link href="tel:+79256355455">+7 (925) 635 54 55</Link>
+        <Link href={TelNumber.HREF}>
+          {TelNumber.LABEL}
+        </Link>
 
         <Box sx={{ marginLeft: '-10px' }}>
-          <Link href="https://www.instagram.com/tuychin.r" target="_blank" rel="noopener">
+          <Link href={Instagram.HREF} target="_blank" rel="noopener">
             <IconButton color="primary">
               <InstagramIcon />
             </IconButton>
           </Link>
 
-          <Link href="https://t.me/tuychin_r" target="_blank" rel="noopener">
+          <Link href={Telegram.HREF} target="_blank" rel="noopener">
             <IconButton color="primary">
               <TelegramIcon />
             </IconButton>
@@ -71,7 +75,7 @@ const Questions = () => (
         </Typography>
 
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-          {FOOTER_PAGES.map(({ name, href }) => (
+          {PAGES.map(({ name, href }) => (
             <Link href={href} key={`${name}${href}`}>
               {name}
             </Link>

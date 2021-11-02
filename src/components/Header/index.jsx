@@ -16,12 +16,6 @@ import MobileNavbar from '../MobileNavbar';
 import Navbar from '../Navbar';
 import logo from '../../images/logo.png';
 
-const PAGES = [
-  { name: 'ГЛАВНАЯ', href: '/' },
-  { name: 'НОВОСТИ', href: '/news' },
-  { name: 'О НАС', href: '/about' },
-];
-
 const DRAWER_WIDTH = 240;
 
 const AppBar = styled(MuiAppBar, {
@@ -75,10 +69,10 @@ const Header = () => {
             <MenuIcon />
           </IconButton>
         ) : (
-          <Navbar pages={PAGES} />
+          <Navbar />
         )}
       </Toolbar>
-      {isTablet && <MobileNavbar pages={PAGES} />}
+      {isTablet && <MobileNavbar />}
     </AppBar>
   );
 };
