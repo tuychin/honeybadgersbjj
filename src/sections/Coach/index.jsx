@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 
 import { openContactModal } from '../../components/ContactModal/contactModalSlice';
 import coach from '../../images/coach.webp';
-import coachBg from '../../images/coach_bg.webp';
+import bjjBg from '../../images/bjj_bg.webp';
 
 const CoachWrapper = styled('section')(({ theme }) => ({
   display: 'flex',
@@ -16,7 +16,7 @@ const CoachWrapper = styled('section')(({ theme }) => ({
   alignItems: 'center',
   paddingTop: theme.spacing(12),
   paddingBottom: theme.spacing(12),
-  backgroundImage: `url(${coachBg})`,
+  backgroundImage: `url(${bjjBg})`,
   backgroundColor: theme.palette.background.default,
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
