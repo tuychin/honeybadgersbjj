@@ -88,7 +88,7 @@ const ContactModal = () => {
             <Typography variant="subtitle1" component="div">
               Через Telegram:
             </Typography>
-            <Link href={Telegram.HREF} target="_blank" rel="noopener">
+            <Link href={Telegram.HREF} target="_blank" rel="noopener noreferrer nofollow">
               {Telegram.LABEL}
             </Link>
           </Box>
@@ -98,7 +98,7 @@ const ContactModal = () => {
             <Typography variant="subtitle1" component="div">
               Через Instagram Direct:
             </Typography>
-            <Link href={Instagram.HREF} target="_blank" rel="noopener">
+            <Link href={Instagram.HREF} target="_blank" rel="noopener noreferrer nofollow">
               {Instagram.LABEL}
             </Link>
           </Box>

@@ -34,7 +34,11 @@ const CookiesNotification = () => {
       <Alert onClose={handleClose} severity="info" sx={{ width: '100%' }}>
         Этот сайт использует куки, потому что без них ничего не работает.
         <br />
-        <Link href="https://ru.wikipedia.org/wiki/Cookie" target="_blank" rel="noopener">
+        <Link
+          href="https://ru.wikipedia.org/wiki/Cookie"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+        >
           Подробнее
         </Link>
       </Alert>

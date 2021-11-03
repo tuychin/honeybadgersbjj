@@ -67,13 +67,13 @@ const Footer = () => (
         </Link>
 
         <Box sx={{ marginLeft: { xs: 0, sm: '-10px' } }}>
-          <Link href={Instagram.HREF} target="_blank" rel="noopener">
+          <Link href={Instagram.HREF} target="_blank" rel="noopener noreferrer nofollow">
             <IconButton color="primary">
               <InstagramIcon />
             </IconButton>
           </Link>
 
-          <Link href={Telegram.HREF} target="_blank" rel="noopener">
+          <Link href={Telegram.HREF} target="_blank" rel="noopener noreferrer nofollow">
             <IconButton color="primary">
               <TelegramIcon />
             </IconButton>
