@@ -4,84 +4,17 @@ import { Helmet } from 'react-helmet';
 import { Provider } from 'react-redux';
 import {
   styled,
-  createTheme,
   ThemeProvider,
-  responsiveFontSizes,
 } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import primaryDark from '../themes/primary-dark';
 import store from '../store';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ContactModal from '../components/ContactModal';
 
-let theme = createTheme({
-  palette: {
-    mode: 'dark',
-    common: {
-      black: '#222831',
-      white: '#EEEEEE',
-    },
-    background: {
-      default: '#222831',
-      paper: '#393E46',
-    },
-    text: {
-      primary: '#EEEEEE',
-      secondary: '#222831',
-    },
-    primary: {
-      light: '#FFD56B',
-      main: '#FFD56B',
-      dark: '#FFD56B',
-      contrastText: '#222831',
-    },
-    secondary: {
-      light: '#393E46',
-      main: '#393E46',
-      dark: '#393E46',
-      contrastText: '#EEEEEE',
-    },
-  },
-  typography: {
-    fontFamily: 'Montserrat, Roboto, sans-serif',
-    fontWeight: 500,
-    button: {
-      fontFamily: 'Montserrat, Roboto, sans-serif',
-      fontWeight: 700,
-    },
-    subtitle1: {
-      fontFamily: 'Montserrat, Roboto, sans-serif',
-      fontWeight: 700,
-    },
-    h1: {
-      fontFamily: 'Oswald, Roboto, sans-serif',
-      fontWeight: 700,
-    },
-    h2: {
-      fontFamily: 'Oswald, Roboto, sans-serif',
-      fontWeight: 700,
-    },
-    h3: {
-      fontFamily: 'Oswald, Roboto, sans-serif',
-      fontWeight: 700,
-    },
-    h4: {
-      fontFamily: 'Oswald, Roboto, sans-serif',
-      fontWeight: 700,
-    },
-    h5: {
-      fontFamily: 'Oswald, Roboto, sans-serif',
-      fontWeight: 700,
-    },
-    h6: {
-      fontFamily: 'Oswald, Roboto, sans-serif',
-      fontWeight: 700,
-    },
-  },
-});
-
-theme = responsiveFontSizes(theme);
+const theme = primaryDark;
 
 const StyledWrapper = styled('div')(() => ({
   display: 'grid',
