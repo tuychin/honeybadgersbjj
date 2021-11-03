@@ -14,10 +14,11 @@ import {
   Instagram,
 } from '../../const';
 
-const QuestionsWrapper = styled('footer')(({ theme }) => ({
+const FooterWrapper = styled('footer')(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
   padding: theme.spacing(3),
+  marginTop: 'auto',
   backgroundColor: theme.palette.background.paper,
   borderTop: `1px solid ${theme.palette.grey[900]}`,
   [theme.breakpoints.between('xs', 'sm')]: {
@@ -25,8 +26,8 @@ const QuestionsWrapper = styled('footer')(({ theme }) => ({
   },
 }));
 
-const Questions = () => (
-  <QuestionsWrapper sx={{ boxShadow: 3 }}>
+const Footer = () => (
+  <FooterWrapper sx={{ boxShadow: 3 }}>
     <Box sx={{
       display: 'flex',
       flexDirection: {
@@ -112,7 +113,7 @@ const Questions = () => (
         {`©${new Date().getFullYear()} Honey badgers BJJ`}
       </Typography>
     </Box>
-  </QuestionsWrapper>
+  </FooterWrapper>
 );
 
-export default Questions;
+export default Footer;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTheme, styled } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -39,7 +40,7 @@ const Logo = styled('img')(() => ({
   maxWidth: 60,
 }));
 
-const Header = () => {
+const Header = ({ isFixed }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
   const isTablet = useMediaQuery(theme.breakpoints.down('sm'));
@@ -50,7 +51,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="fixed" open={isMobileNavbarOpen}>
+    <AppBar position={isFixed ? 'fixed' : 'static'} open={isMobileNavbarOpen}>
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Link
           sx={{ display: 'flex', alignItems: 'center' }}
@@ -75,6 +76,10 @@ const Header = () => {
       {isTablet && <MobileNavbar />}
     </AppBar>
   );
+};
+
+Header.propTypes = {
+  isFixed: PropTypes.bool,
 };
 
 export default Header;

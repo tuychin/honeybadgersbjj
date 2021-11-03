@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
-import RoomIcon from '@mui/icons-material/Room';
+import ExploreIcon from '@mui/icons-material/Explore';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 
@@ -47,7 +47,7 @@ const Information = () => (
   <InformationWrapper sx={{ boxShadow: 3 }}>
     <InformationInner>
       <InformationItem>
-        <RoomIcon sx={{ mb: 3 }} color="primary" fontSize="large" />
+        <ExploreIcon sx={{ mb: 3 }} color="primary" fontSize="large" />
         <Typography>
           Адрес: г. Москва, Улица Ленинская Слобода, 19
           <br />

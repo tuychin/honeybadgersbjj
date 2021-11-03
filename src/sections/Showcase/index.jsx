@@ -6,8 +6,6 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
 import { openContactModal } from '../../components/ContactModal/contactModalSlice';
-
-import ContactModal from '../../components/ContactModal';
 import showcase from '../../images/showcase.jpg';
 
 const animateBackground = (target) => {
@@ -110,7 +108,6 @@ const Showcase = () => {
           Как записаться?
         </Button>
       </ContentWrapper>
-      <ContactModal />
     </ShowcaseWrapper>
   );
 };
