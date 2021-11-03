@@ -23,6 +23,17 @@ const FooterWrapper = styled('footer')(({ theme }) => ({
   borderTop: `1px solid ${theme.palette.grey[900]}`,
   [theme.breakpoints.between('xs', 'sm')]: {
     flexDirection: 'column',
+    paddingTop: theme.spacing(6),
+  },
+}));
+
+const FooterSection = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  justifyContent: 'flex-start',
+  [theme.breakpoints.between('xs', 'sm')]: {
+    alignItems: 'center',
   },
 }));
 
@@ -36,7 +47,7 @@ const Footer = () => (
       },
     }}
     >
-      <Box sx={{
+      <FooterSection sx={{
         mr: {
           xs: 0,
           sm: 5,
@@ -55,7 +66,7 @@ const Footer = () => (
           {TelNumber.LABEL}
         </Link>
 
-        <Box sx={{ marginLeft: '-10px' }}>
+        <Box sx={{ marginLeft: { xs: 0, sm: '-10px' } }}>
           <Link href={Instagram.HREF} target="_blank" rel="noopener">
             <IconButton color="primary">
               <InstagramIcon />
@@ -68,46 +79,33 @@ const Footer = () => (
             </IconButton>
           </Link>
         </Box>
-      </Box>
+      </FooterSection>
 
-      <Box>
+      <FooterSection>
         <Typography variant="h6" component="div" gutterBottom>
           Страницы:
         </Typography>
 
-        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        <FooterSection>
           {PAGES.map(({ name, href }) => (
             <Link href={href} key={`${name}${href}`}>
               {name}
             </Link>
           ))}
-        </Box>
-      </Box>
+        </FooterSection>
+      </FooterSection>
     </Box>
 
     <Box sx={{
       display: 'flex',
+      alignItems: { xs: 'center', sm: 'flex-end' },
+      justifyContent: 'flex-end',
       flexDirection: 'column',
-      position: 'relative',
-      mt: { xs: 6, sm: 0 },
+      mt: { xs: 5, sm: 0 },
     }}
     >
-      <Link href="/privacy-policy">
-        <Typography variant="body2">Политика конфенденциальности</Typography>
-      </Link>
-
-      <Link href="/cookie-policy">
-        <Typography variant="body2">Политика Cookie</Typography>
-      </Link>
-
       <Typography
-        sx={{
-          position: { xs: 'relative', sm: 'absolute' },
-          bottom: 0,
-          right: 0,
-          textAlign: { xs: 'left', sm: 'right' },
-          mt: 3,
-        }}
+        sx={{ textAlign: { xs: 'left', sm: 'right' } }}
         variant="caption"
       >
         {`©${new Date().getFullYear()} Honey badgers BJJ`}
