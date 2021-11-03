@@ -13,6 +13,7 @@ import store from '../store';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ContactModal from '../components/ContactModal';
+import CookiesNotification from '../components/CookiesNotification';
 
 const theme = primaryDark;
 
@@ -43,6 +44,7 @@ const AppWraper = ({ children }) => (
       />
       <StyledWrapper>
         {children}
+        <CookiesNotification />
       </StyledWrapper>
     </ThemeProvider>
   </Provider>
