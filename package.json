@@ -9,10 +9,11 @@
   ],
   "scripts": {
     "develop": "gatsby develop",
-    "start": "gatsby develop",
+    "start": "gatsby develop --open",
     "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "serve": "gatsby serve --open",
+    "clean": "gatsby clean",
+    "production": "npm run build && npm run serve --open"
   },
   "dependencies": {
     "@emotion/react": "^11.5.0",
