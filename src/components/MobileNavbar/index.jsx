@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { styled } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
@@ -42,14 +42,8 @@ const MobileNavbar = () => {
   const dispatch = useDispatch();
   const isOpen = useSelector(selectIsMobileNavbarOpen);
 
-  const closeOverlayRef = useRef(null);
-  const closeButtonRef = useRef(null);
-  const closeIconRef = useRef(null);
-
-  const handleClose = (evt, closeElements) => {
-    if (closeElements.includes(evt.currentTarget)) {
-      dispatch(closeMobileNavbar());
-    }
+  const handleClose = () => {
+    dispatch(closeMobileNavbar());
   };
 
   const handleContactModalOpen = () => {
@@ -59,12 +53,7 @@ const MobileNavbar = () => {
   return (
     <>
       {isOpen && (
-        <CloseOverlay
-          ref={closeOverlayRef}
-          onClick={(evt) => {
-            handleClose(evt, [closeOverlayRef.current]);
-          }}
-        />
+        <CloseOverlay onClick={handleClose} />
       )}
       <Drawer
         sx={{
@@ -80,17 +69,12 @@ const MobileNavbar = () => {
         open={isOpen}
       >
         <DrawerHeader>
-          <IconButton
-            ref={closeButtonRef}
-            onClick={(evt) => {
-              handleClose(evt, [closeButtonRef.current, closeIconRef.current]);
-            }}
-          >
-            <CloseIcon ref={closeIconRef} />
+          <IconButton onClick={handleClose}>
+            <CloseIcon />
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
+        <List onClick={handleClose}>
           {PAGES.map(({ name, href }) => (
             <InnerLink
               to={href}
