@@ -5,7 +5,6 @@ import { useTheme, styled } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
@@ -13,6 +12,7 @@ import {
   openMobileNavbar,
 } from '../MobileNavbar/mobileNavbarSlice';
 
+import InnerLink from '../InnerLink';
 import MobileNavbar from '../MobileNavbar';
 import Navbar from '../Navbar';
 import logo from '../../images/logo.png';
@@ -53,12 +53,12 @@ const Header = ({ isFixed }) => {
   return (
     <AppBar position={isFixed ? 'fixed' : 'static'} open={isMobileNavbarOpen}>
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Link
+        <InnerLink
           sx={{ display: 'flex', alignItems: 'center' }}
-          href="/"
+          to="/"
         >
           <Logo src={logo} alt="Honey Badgers BJJ Logo" />
-        </Link>
+        </InnerLink>
         {isTablet ? (
           <IconButton
             color="inherit"

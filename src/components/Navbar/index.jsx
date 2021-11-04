@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { styled } from '@mui/material/styles';
-import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { openContactModal } from '../ContactModal/contactModalSlice';
 
+import InnerLink from '../InnerLink';
 import { PAGES } from '../../const';
 
 const DesktopNavbar = styled('div')(() => ({
@@ -23,17 +23,18 @@ const Navbar = () => {
   return (
     <DesktopNavbar>
       {PAGES.map(({ name, href }) => (
-        <Link
+        <InnerLink
           sx={{ mr: 3 }}
-          href={href}
-          color="inherit"
+          activeStyle={{ textDecoration: 'underline' }}
+          to={href}
+          color="white"
           underline="hover"
           key={name}
         >
           <Typography variant="button" component="span">
             {name}
           </Typography>
-        </Link>
+        </InnerLink>
       ))}
       <Button
         size="large"

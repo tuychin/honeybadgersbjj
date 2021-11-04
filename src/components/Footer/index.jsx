@@ -7,6 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TelegramIcon from '@mui/icons-material/Telegram';
 
+import InnerLink from '../InnerLink';
 import {
   PAGES,
   TelNumber,
@@ -88,9 +89,9 @@ const Footer = () => (
 
         <FooterSection>
           {PAGES.map(({ name, href }) => (
-            <Link href={href} key={`${name}${href}`}>
+            <InnerLink to={href} key={`${name}${href}`}>
               {name}
-            </Link>
+            </InnerLink>
           ))}
         </FooterSection>
       </FooterSection>

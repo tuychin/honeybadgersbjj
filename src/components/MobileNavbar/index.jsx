@@ -3,17 +3,18 @@ import { useSelector, useDispatch } from 'react-redux';
 import { styled } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
-import Link from '@mui/material/Link';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Button from '@mui/material/Button';
+
 import {
   selectIsMobileNavbarOpen,
   closeMobileNavbar,
 } from './mobileNavbarSlice';
+import InnerLink from '../InnerLink';
 import { openContactModal } from '../ContactModal/contactModalSlice';
 import { PAGES } from '../../const';
 
@@ -91,8 +92,8 @@ const MobileNavbar = () => {
         <Divider />
         <List>
           {PAGES.map(({ name, href }) => (
-            <Link
-              href={href}
+            <InnerLink
+              to={href}
               color="inherit"
               underline="none"
               key={name}
@@ -100,7 +101,7 @@ const MobileNavbar = () => {
               <ListItem button>
                 <ListItemText primary={name} />
               </ListItem>
-            </Link>
+            </InnerLink>
           ))}
         </List>
         <Button
