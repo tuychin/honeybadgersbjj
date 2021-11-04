@@ -1,57 +1,47 @@
-import * as React from 'react';
-import { Link } from 'gatsby';
+import React from 'react';
+import Helmet from 'react-helmet';
+import { styled } from '@mui/material/styles';
+import { navigate } from 'gatsby';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
-// styles
-const pageStyles = {
-  color: '#232129',
-  padding: '96px',
-  fontFamily: '-apple-system, Roboto, sans-serif, serif',
-};
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-};
+const NotFoundPageInner = styled(Container)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  paddingTop: theme.spacing(12),
+  paddingBottom: theme.spacing(12),
+  [theme.breakpoints.between('xs', 'md')]: {
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
+  },
+}));
 
-const paragraphStyles = {
-  marginBottom: 48,
-};
-const codeStyles = {
-  color: '#8A6534',
-  padding: 4,
-  backgroundColor: '#FFF4DB',
-  fontSize: '1.25rem',
-  borderRadius: 4,
-};
+const NotFoundPageText = styled(Typography)(({ theme }) => ({
+  marginBottom: theme.spacing(3),
+}));
 
-// markup
 const NotFoundPage = () => (
-  <main style={pageStyles}>
-    <title>Not found</title>
-    <h1 style={headingStyles}>Page not found</h1>
-    <p style={paragraphStyles}>
-      Sorry
-      {' '}
-      <span role="img" aria-label="Pensive emoji">
-        😔
-      </span>
-      {' '}
-      we couldn’t find what you were looking for.
-      <br />
-      {process.env.NODE_ENV === 'development' ? (
-        <>
-          <br />
-          Try creating a page in
-          {' '}
-          <code style={codeStyles}>src/pages/</code>
-          .
-          <br />
-        </>
-      ) : null}
-      <br />
-      <Link to="/">Go home</Link>
-      .
-    </p>
+  <main>
+    <Helmet title="404 | Страница не найдена" />
+    <NotFoundPageInner>
+      <NotFoundPageText variant="h1" component="h1">
+        404
+      </NotFoundPageText>
+      <NotFoundPageText variant="h4" component="div">
+        страница не найдена
+      </NotFoundPageText>
+      <Button
+        color="primary"
+        variant="contained"
+        size="large"
+        onClick={() => navigate(-1)}
+      >
+        Вернуться
+      </Button>
+    </NotFoundPageInner>
   </main>
 );
 
