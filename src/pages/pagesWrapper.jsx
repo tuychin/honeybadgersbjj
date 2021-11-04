@@ -51,7 +51,10 @@ const AppWraper = ({ children }) => (
 );
 
 AppWraper.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element,
+  ]).isRequired,
 };
 
 export const wrapPages = ({ element }) => (
