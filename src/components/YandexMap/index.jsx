@@ -21,11 +21,13 @@ const YandexMap = ({ coordinates, description }) => {
         setIsLoaded(true);
       }
     }, delay);
+
+    return () => {
+      clearTimeout(timerId);
+    };
   };
 
-  useEffect(() => {
-    mapChecker();
-  }, []);
+  useEffect(mapChecker, []);
 
   return (
     <Box sx={{
