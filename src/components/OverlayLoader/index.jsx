@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 
-const OverlayLoader = ({ isOpen }) => (
+const OverlayLoader = ({ isOpen = true }) => (
   <Backdrop
     sx={{
       backgroundColor: (theme) => theme.palette.background.default,
