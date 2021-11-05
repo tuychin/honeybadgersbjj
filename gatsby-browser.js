@@ -5,10 +5,8 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Provider } from 'react-redux';
 
-import { createStore } from './src/store';
+import store from './src/store';
 import theme from './src/themes/primary-dark';
-
-const store = createStore();
 
 const wrapRootElement = ({ element }) => (
   <Provider store={store}>
