@@ -9,4 +9,6 @@ const reducer = {
 
 const store = configureStore({ reducer });
 
+export const createStore = () => configureStore({ reducer });
+
 export default store;
