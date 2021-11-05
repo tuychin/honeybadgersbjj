@@ -1,16 +1,14 @@
 /* eslint-disable react/jsx-filename-extension */
-const React = require('react');
-const { Provider } = require('react-redux');
-const { Helmet } = require('react-helmet');
-const { ThemeProvider } = require('@mui/material/styles');
-const CssBaseline = require('@mui/material/CssBaseline');
-const { createStore } = require('./src/store');
-const theme = require('./src/themes/primary-dark');
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
-const store = createStore();
+import StoreProviderWrapper from './src/store/StoreProviderWrapper';
+import theme from './src/themes/primary-dark';
 
-exports.wrapRootElement = ({ element }) => (
-  <Provider store={store}>
+export const wrapRootElement = ({ element }) => (
+  <StoreProviderWrapper>
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Helmet
@@ -27,5 +25,7 @@ exports.wrapRootElement = ({ element }) => (
       />
       {element}
     </ThemeProvider>
-  </Provider>
+  </StoreProviderWrapper>
 );
+
+export default wrapRootElement;

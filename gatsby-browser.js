@@ -3,13 +3,12 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { Provider } from 'react-redux';
 
-import store from './src/store';
+import StoreProviderWrapper from './src/store/StoreProviderWrapper';
 import theme from './src/themes/primary-dark';
 
-const wrapRootElement = ({ element }) => (
-  <Provider store={store}>
+export const wrapRootElement = ({ element }) => (
+  <StoreProviderWrapper>
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Helmet
@@ -26,7 +25,7 @@ const wrapRootElement = ({ element }) => (
       />
       {element}
     </ThemeProvider>
-  </Provider>
+  </StoreProviderWrapper>
 );
 
 export default wrapRootElement;

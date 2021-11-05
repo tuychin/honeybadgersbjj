@@ -17,7 +17,7 @@ const StyledWrapper = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
 }));
 
-const AppWrapper = ({ children }) => {
+const AppWraper = ({ children }) => {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const AppWrapper = ({ children }) => {
   );
 };
 
-AppWrapper.propTypes = {
+AppWraper.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.element),
     PropTypes.element,
@@ -51,21 +51,21 @@ AppWrapper.propTypes = {
 };
 
 export const wrapPages = ({ element }) => (
-  <AppWrapper>
+  <AppWraper>
     <Header isFixed />
     {element}
     <ContactModal />
     <Footer />
-  </AppWrapper>
+  </AppWraper>
 );
 
 export const wrapPagesDeep = ({ element }) => (
-  <AppWrapper>
+  <AppWraper>
     <Header />
     {element}
     <ContactModal />
     <Footer />
-  </AppWrapper>
+  </AppWraper>
 );
 
 export default {

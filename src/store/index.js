@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import contactModalSlice from './components/ContactModal/contactModalSlice';
-import mobileNavbarSlice from './components/MobileNavbar/mobileNavbarSlice';
+import contactModalSlice from '../components/ContactModal/contactModalSlice';
+import mobileNavbarSlice from '../components/MobileNavbar/mobileNavbarSlice';
 
 const reducer = {
   contactModal: contactModalSlice,
