@@ -80,6 +80,7 @@ const MobileNavbar = () => {
               to={href}
               color="inherit"
               underline="none"
+              activeStyle={{ textDecoration: 'underline' }}
               key={name}
             >
               <ListItem button>

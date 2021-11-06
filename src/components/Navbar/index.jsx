@@ -25,10 +25,10 @@ const Navbar = () => {
       {PAGES.map(({ name, href }) => (
         <InnerLink
           sx={{ mr: 3 }}
-          activeStyle={{ textDecoration: 'underline' }}
           to={href}
           color="white"
           underline="hover"
+          activeStyle={{ textDecoration: 'underline' }}
           key={name}
         >
           <Typography variant="button" component="span">

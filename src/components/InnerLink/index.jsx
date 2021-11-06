@@ -10,10 +10,10 @@ const InnerLink = styled(
   underline,
 }) => ({
   color: color || theme.palette.primary.main,
-  textDecoration: underline === 'hover' ? 'none' : 'underline',
+  textDecoration: underline === 'hover' || underline === 'none' ? 'none' : 'underline',
   textDecorationColor: 'rgba(255, 213, 107, 0.4)',
   '&:hover': {
-    textDecoration: 'underline',
+    textDecoration: underline === 'none' ? 'none' : 'underline',
     textDecorationColor: 'inherit',
   },
 }));
