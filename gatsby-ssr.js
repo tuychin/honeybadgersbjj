@@ -5,7 +5,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import StoreProviderWrapper from './src/store/StoreProviderWrapper';
-import theme from './src/themes/primary-dark';
+import theme from './src/themes/primary';
 
 export const wrapRootElement = ({ element }) => (
   <StoreProviderWrapper>
