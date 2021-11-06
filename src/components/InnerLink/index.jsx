@@ -1,5 +1,6 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
+import { alpha } from '@mui/system';
 import { Link } from 'gatsby';
 
 const InnerLink = styled(
@@ -11,7 +12,7 @@ const InnerLink = styled(
 }) => ({
   color: color || theme.palette.primary.main,
   textDecoration: underline === 'hover' || underline === 'none' ? 'none' : 'underline',
-  textDecorationColor: 'rgba(255, 213, 107, 0.4)',
+  textDecorationColor: alpha(theme.palette.primary.main, 0.4),
   '&:hover': {
     textDecoration: underline === 'none' ? 'none' : 'underline',
     textDecorationColor: 'inherit',
