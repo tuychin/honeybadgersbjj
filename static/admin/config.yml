@@ -13,12 +13,12 @@ media_folder: static/media
 public_folder: /media
 
 collections:
-  - label: "Страницы"
-    name: "pages"
+  - label: Страницы
+    name: pages
     files:
-      - file: "src/pages/index.md"
-        label: "Главная страница"
-        name: "index"
+      - file: src/pages/index.md
+        label: Главная страница
+        name: index
         fields:
           - {
               label: "Template Key",
@@ -38,68 +38,36 @@ collections:
                 ],
             }
           - {
-              label: Intro,
-              name: intro,
-              widget: object,
+              label: Преимущества,
+              name: benefits,
+              widget: list,
               fields:
                 [
-                  { label: Heading, name: heading, widget: string },
-                  { label: Description, name: description, widget: text },
-                  {
-                    label: Blurbs,
-                    name: blurbs,
-                    widget: list,
-                    fields:
-                      [
-                        { label: Image, name: image, widget: image },
-                        { label: Text, name: text, widget: text },
-                      ],
-                  },
+                  { label: Преимущество, name: title, widget: string },
+                  { label: Изображение, name: image, widget: image },
+                  { label: Описание, name: description, widget: text },
+                  { label: Tags, name: tags, widget: list },
                 ],
             }
           - {
-              label: Main,
-              name: main,
-              widget: object,
+              label: Вопросы,
+              name: qa,
+              widget: list,
               fields:
                 [
-                  { label: Heading, name: heading, widget: string },
-                  { label: Description, name: description, widget: text },
-                  {
-                    label: Image1,
-                    name: image1,
-                    widget: object,
-                    fields:
-                      [
-                        { label: Image, name: image, widget: image },
-                        { label: Alt, name: alt, widget: string },
-                      ],
-                  },
-                  {
-                    label: Image2,
-                    name: image2,
-                    widget: object,
-                    fields:
-                      [
-                        { label: Image, name: image, widget: image },
-                        { label: Alt, name: alt, widget: string },
-                      ],
-                  },
-                  {
-                    label: Image3,
-                    name: image3,
-                    widget: object,
-                    fields:
-                      [
-                        { label: Image, name: image, widget: image },
-                        { label: Alt, name: alt, widget: string },
-                      ],
-                  },
+                  { label: Вопрос, name: question, widget: string },
+                  { label: Ответ, name: answer, widget: text },
                 ],
             }
-      - file: "src/pages/about/index.md"
-        label: "О нас"
-        name: "about"
+          - {
+              label: Баннер целевого действия,
+              name: target-banner,
+              widget: text,
+            }
+
+      - file: src/pages/about/index.md
+        label: О нас
+        name: about
         fields:
           - {
               label: "Template Key",
@@ -107,5 +75,65 @@ collections:
               widget: "hidden",
               default: "about-page",
             }
-          - { label: "Заголовок", name: "title", widget: "string" }
-          - { label: "Текст", name: "body", widget: "markdown" }
+          - { label: Заголовок, name: title, widget: string }
+          - { label: Текст, name: body, widget: markdown }
+
+  - label: Параметры
+    name: params
+    files:
+    - file: src/pages/pagesWrapper.md
+      label: Общая информация
+      name: common-info
+      fields:
+        - {
+            label: "Template Key",
+            name: "templateKey",
+            widget: "hidden",
+            default: "common-info",
+          }
+        - {
+            label: Номер телефона,
+            name: tel-number,
+            widget: string,
+          }
+        - {
+            label: Локация,
+            name: location,
+            widget: object,
+            fields:
+              [
+                { label: Адрес, name: address, widget: string },
+                {
+                  label: Координаты,
+                  name: coordinates,
+                  widget: list,
+                  max: 2,
+                  min: 2,
+                  fields:
+                    [
+                      { label: Широта, name: coordinatesX, widget: string },
+                      { label: Долгота, name: coordinatesY, widget: string },
+                    ],
+                },
+              ],
+          }
+        - {
+            label: Соц. сети,
+            name: socials,
+            widget: list,
+            fields:
+              [
+                { label: Логин, name: login, widget: string },
+                { label: Ссылка, name: href, widget: string },
+              ],
+          }
+    - file: src/components/seo.md
+      label: СЕО-оптимизация
+      name: seo
+      fields:
+        - {
+            label: "Template Key",
+            name: "templateKey",
+            widget: "hidden",
+            default: "seo",
+          }
