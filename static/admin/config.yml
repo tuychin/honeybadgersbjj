@@ -1,6 +1,111 @@
 backend:
   name: git-gateway
   branch: master
+  commit_messages:
+    create: "Create {{collection}}"
+    update: "Update {{collection}}"
+    delete: "Delete {{collection}}"
+    uploadMedia: "[skip ci] Upload"
+    deleteMedia: "[skip ci] Delete"
 
-media_folder: static/images
-public_folder: /images
+locale: 'ru'
+media_folder: static/media
+public_folder: /media
+
+collections:
+  - label: "Страницы"
+    name: "pages"
+    files:
+      - file: "src/pages/index.md"
+        label: "Главная страница"
+        name: "index"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "index-page",
+            }
+          - {
+              label: Первый экран,
+              name: mainpitch,
+              widget: object,
+              fields:
+                [
+                  { label: Заголовок, name: title, widget: string },
+                  { label: Описание, name: description, widget: text },
+                  { label: Изображение, name: image, widget: image }
+                ],
+            }
+          - {
+              label: Intro,
+              name: intro,
+              widget: object,
+              fields:
+                [
+                  { label: Heading, name: heading, widget: string },
+                  { label: Description, name: description, widget: text },
+                  {
+                    label: Blurbs,
+                    name: blurbs,
+                    widget: list,
+                    fields:
+                      [
+                        { label: Image, name: image, widget: image },
+                        { label: Text, name: text, widget: text },
+                      ],
+                  },
+                ],
+            }
+          - {
+              label: Main,
+              name: main,
+              widget: object,
+              fields:
+                [
+                  { label: Heading, name: heading, widget: string },
+                  { label: Description, name: description, widget: text },
+                  {
+                    label: Image1,
+                    name: image1,
+                    widget: object,
+                    fields:
+                      [
+                        { label: Image, name: image, widget: image },
+                        { label: Alt, name: alt, widget: string },
+                      ],
+                  },
+                  {
+                    label: Image2,
+                    name: image2,
+                    widget: object,
+                    fields:
+                      [
+                        { label: Image, name: image, widget: image },
+                        { label: Alt, name: alt, widget: string },
+                      ],
+                  },
+                  {
+                    label: Image3,
+                    name: image3,
+                    widget: object,
+                    fields:
+                      [
+                        { label: Image, name: image, widget: image },
+                        { label: Alt, name: alt, widget: string },
+                      ],
+                  },
+                ],
+            }
+      - file: "src/pages/about/index.md"
+        label: "О нас"
+        name: "about"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "about-page",
+            }
+          - { label: "Заголовок", name: "title", widget: "string" }
+          - { label: "Текст", name: "body", widget: "markdown" }
