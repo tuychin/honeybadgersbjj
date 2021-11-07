@@ -1,6 +1,5 @@
 export const PAGES = [
   { name: 'Главная', href: '/' },
-  { name: 'Новости', href: '/news' },
   { name: 'О нас', href: '/about' },
 ];
 

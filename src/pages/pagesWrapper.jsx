@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 import { styled } from '@mui/material/styles';
 
 import Header from '../components/Header';
@@ -33,6 +34,25 @@ const AppWraper = ({ children }) => {
 
   return (
     <StyledWrapper>
+      <Helmet
+        script={[
+          { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js', type: 'text/javascript' },
+          {
+            innerHTML: `
+              if (window.netlifyIdentity) {
+                window.netlifyIdentity.on("init", user => {
+                  if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                      document.location.href = "/admin/";
+                    });
+                  }
+                });
+              }
+            `,
+            type: 'text/javascript',
+          },
+        ]}
+      />
       {isLoading ? <OverlayLoader /> : (
         <>
           {children}
