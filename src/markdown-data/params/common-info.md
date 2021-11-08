@@ -1,5 +1,6 @@
 ---
 tel-number: "+79256355455"
+plan: ПН, СР, ПТ - с 20:00 до 22:00
 price: 6.000₽/месяц
 location:
   coordinates:
