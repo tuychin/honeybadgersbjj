@@ -43,8 +43,8 @@ collections:
               widget: list,
               fields:
                 [
-                  { label: Преимущество, name: title, widget: string },
                   { label: Изображение, name: image, widget: image },
+                  { label: Преимущество, name: title, widget: string },
                   { label: Описание, name: description, widget: text },
                   { label: Tags, name: tags, widget: list },
                 ],
@@ -97,6 +97,16 @@ collections:
             widget: string,
           }
         - {
+            label: Расписание,
+            name: plan,
+            widget: string,
+          }
+        - {
+            label: Стоимость,
+            name: price,
+            widget: string,
+          }
+        - {
             label: Локация,
             name: location,
             widget: object,
@@ -106,9 +116,7 @@ collections:
                 {
                   label: Координаты,
                   name: coordinates,
-                  widget: list,
-                  max: 2,
-                  min: 2,
+                  widget: object,
                   fields:
                     [
                       { label: Широта, name: coordinatesX, widget: string },
@@ -123,6 +131,7 @@ collections:
             widget: list,
             fields:
               [
+                { label: Название, name: name, widget: string },
                 { label: Логин, name: login, widget: string },
                 { label: Ссылка, name: href, widget: string },
               ],
