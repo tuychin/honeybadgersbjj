@@ -4,7 +4,6 @@ module.exports = {
     title: 'honeybadgersbjj',
   },
   plugins: [
-    'gatsby-plugin-netlify-cms',
     'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
@@ -21,9 +20,22 @@ module.exports = {
         wrapperName: ['pagesWrapper.js'],
       },
     },
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        modulePath: `${__dirname}/src/cms`,
+      },
+    },
     'gatsby-plugin-mdx',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static/media`,
+        name: 'uploads',
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -39,6 +51,19 @@ module.exports = {
         path: './src/pages/',
       },
       __key: 'pages',
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 2048,
+            },
+          },
+        ],
+      },
     },
   ],
 };
