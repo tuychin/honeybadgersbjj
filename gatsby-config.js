@@ -32,8 +32,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/static/media`,
         name: 'uploads',
+        path: `${__dirname}/static/media`,
       },
     },
     {
@@ -51,6 +51,13 @@ module.exports = {
         path: './src/pages/',
       },
       __key: 'pages',
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'markdown-data',
+        path: `${__dirname}/src/markdown-data`,
+      },
     },
     {
       resolve: 'gatsby-transformer-remark',
