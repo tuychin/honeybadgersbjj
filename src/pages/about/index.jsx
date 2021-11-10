@@ -4,6 +4,8 @@ import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
+import logo from '../../images/logo.png';
+
 const AboutInner = styled(Container)(({ theme }) => ({
   paddingTop: theme.spacing(12),
   paddingBottom: theme.spacing(12),
@@ -17,6 +19,15 @@ const AboutTitle = styled(Typography)(({ theme }) => ({
   marginBottom: theme.spacing(3),
 }));
 
+const Logo = styled('img')(({ theme }) => ({
+  float: 'right',
+  maxWidth: '200px',
+  margin: '0 10px',
+  [theme.breakpoints.between('xs', 'sm')]: {
+    maxWidth: '100px',
+  },
+}));
+
 const About = () => (
   <main>
     <Helmet title="О нас | Honey badgers BJJ" />
@@ -24,6 +35,7 @@ const About = () => (
       <AboutTitle variant="h2" component="h1">
         О нас
       </AboutTitle>
+      <Logo src={logo} alt="Honey Badgers BJJ Logo" />
       <Typography>
         Мы полностью сконцентрированы на джиу-джитсу и продвижении здорового образа жизни.
         В наших залах тренируются как действующие спортсмены, так и люди, которые просто
