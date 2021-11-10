@@ -22,6 +22,7 @@ const DRAWER_WIDTH = 240;
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'isMobileNavbarOpen',
 })(({ theme, isMobileNavbarOpen }) => ({
+  backgroundColor: theme.palette.secondary.main,
   transition: theme.transitions.create(['margin', 'width'], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,

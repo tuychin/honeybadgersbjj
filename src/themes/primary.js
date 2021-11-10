@@ -5,7 +5,6 @@ import {
 
 const theme = createTheme({
   palette: {
-    mode: 'dark',
     common: {
       black: '#222831',
       white: '#EEEEEE',
@@ -19,9 +18,9 @@ const theme = createTheme({
       secondary: '#222831',
     },
     primary: {
-      light: '#FFD56B',
-      main: '#FFD56B',
-      dark: '#FFD56B',
+      light: '#00ADB5',
+      main: '#00ADB5',
+      dark: '#00ADB5',
       contrastText: '#222831',
     },
     secondary: {

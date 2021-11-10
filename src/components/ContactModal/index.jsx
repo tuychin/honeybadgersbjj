@@ -55,8 +55,13 @@ const ContactModal = () => {
       open={isOpen}
       onClose={handleClose}
       TransitionComponent={Transition}
+      PaperProps={{
+        sx: {
+          backgroundColor: 'background.default',
+        },
+      }}
     >
-      <AppBar sx={{ position: 'relative' }}>
+      <AppBar sx={{ position: 'relative' }} color="secondary">
         <Toolbar>
           <Typography sx={{ ml: 2, flex: 1 }} variant="h5" component="div">
             Как записаться?
