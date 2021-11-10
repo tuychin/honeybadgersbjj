@@ -22,7 +22,6 @@ const DRAWER_WIDTH = 240;
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'isMobileNavbarOpen',
 })(({ theme, isMobileNavbarOpen }) => ({
-  backgroundColor: theme.palette.secondary.main,
   transition: theme.transitions.create(['margin', 'width'], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -52,7 +51,11 @@ const Header = ({ isFixed }) => {
   };
 
   return (
-    <AppBar position={isFixed ? 'fixed' : 'static'} open={isMobileNavbarOpen}>
+    <AppBar
+      color="secondary"
+      position={isFixed ? 'fixed' : 'static'}
+      open={isMobileNavbarOpen}
+    >
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <InnerLink
           sx={{ display: 'flex', alignItems: 'center' }}
