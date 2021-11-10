@@ -9,6 +9,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Button from '@mui/material/Button';
+import { grey } from '@mui/material/colors';
 
 import {
   selectIsMobileNavbarOpen,
@@ -70,7 +71,7 @@ const MobileNavbar = () => {
       >
         <DrawerHeader>
           <IconButton onClick={handleClose}>
-            <CloseIcon />
+            <CloseIcon sx={{ color: grey[200] }} />
           </IconButton>
         </DrawerHeader>
         <Divider />
