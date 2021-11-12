@@ -5,7 +5,7 @@ import StoreProviderWrapper from './src/store/StoreProviderWrapper';
 import Layout from './src/layout';
 
 export const wrapPageElement = ({ element, props }) => (
-  <Layout path={props.path}>
+  <Layout path={props.location.path}>
     {element}
   </Layout>
 );
