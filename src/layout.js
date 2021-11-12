@@ -23,8 +23,13 @@ const StyledWrapper = styled('div')(() => ({
 }));
 
 export const Layout = ({ children }) => {
+  const [pathName, setPathName] = useState('');
   const [isLoading, setLoading] = useState(true);
   const overlayDuration = 500;
+
+  useEffect(() => {
+    setPathName(window.location.pathname);
+  }, [children]);
 
   useEffect(() => {
     const timerId = setTimeout(() => {
@@ -70,7 +75,7 @@ export const Layout = ({ children }) => {
       />
       {isLoading ? <OverlayLoader /> : (
         <StyledWrapper>
-          <Header isFixed />
+          <Header isFixed={pathName === '/'} />
           <main>{children}</main>
           <Footer />
           <ContactModal />
