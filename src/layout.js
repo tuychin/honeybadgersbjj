@@ -1,17 +1,27 @@
 /* eslint-disable react/jsx-filename-extension */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { styled, ThemeProvider } from '@mui/material/styles';
+import anime from 'animejs/lib/anime.es';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ContactModal from './components/ContactModal';
 import CookiesNotification from './components/CookiesNotification';
-import OverlayLoader from './components/OverlayLoader';
 
 import theme from './themes/primary';
+
+const animateContentEmergence = (target) => {
+  anime({
+    targets: target,
+    easing: 'linear',
+    opacity: [
+      { value: 1, duration: 500, delay: 1000 },
+    ],
+  });
+};
 
 const StyledWrapper = styled('div')(() => ({
   display: 'grid',
@@ -20,26 +30,20 @@ const StyledWrapper = styled('div')(() => ({
   minHeight: '100vh',
   color: theme.palette.text.primary,
   backgroundColor: theme.palette.background.default,
+  opacity: 0,
 }));
 
 export const Layout = ({ children }) => {
   const [pathName, setPathName] = useState('');
-  const [isLoading, setLoading] = useState(true);
-  const overlayDuration = 500;
+  const contentRef = useRef(null);
+
+  useEffect(() => {
+    animateContentEmergence(contentRef.current);
+  }, []);
 
   useEffect(() => {
     setPathName(window.location.pathname);
   }, [children]);
-
-  useEffect(() => {
-    const timerId = setTimeout(() => {
-      setLoading(false);
-    }, overlayDuration);
-
-    return () => {
-      clearTimeout(timerId);
-    };
-  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -73,15 +77,13 @@ export const Layout = ({ children }) => {
           },
         ]}
       />
-      {isLoading ? <OverlayLoader /> : (
-        <StyledWrapper>
-          <Header isFixed={pathName === '/'} />
-          <main>{children}</main>
-          <Footer />
-          <ContactModal />
-          <CookiesNotification />
-        </StyledWrapper>
-      )}
+      <StyledWrapper ref={contentRef}>
+        <Header isFixed={pathName === '/'} />
+        <main>{children}</main>
+        <Footer />
+        <ContactModal />
+        <CookiesNotification />
+      </StyledWrapper>
     </ThemeProvider>
   );
 };
