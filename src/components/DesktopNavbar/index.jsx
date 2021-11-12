@@ -8,9 +8,12 @@ import { openContactModal } from '../ContactModal/contactModalSlice';
 import InnerLink from '../InnerLink';
 import { PAGES } from '../../const';
 
-const DesktopNavbar = styled('div')(() => ({
+const DesktopNavbar = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
+  [theme.breakpoints.between('xs', 'sm')]: {
+    display: 'none',
+  },
 }));
 
 const Navbar = () => {

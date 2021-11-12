@@ -13,8 +13,8 @@ import {
 } from '../MobileNavbar/mobileNavbarSlice';
 
 import InnerLink from '../InnerLink';
+import DesktopNavbar from '../DesktopNavbar';
 import MobileNavbar from '../MobileNavbar';
-import Navbar from '../Navbar';
 import logo from '../../images/logo.png';
 
 const DRAWER_WIDTH = 240;
@@ -74,7 +74,7 @@ const Header = ({ isFixed }) => {
             <MenuIcon />
           </IconButton>
         ) : (
-          <Navbar />
+          <DesktopNavbar />
         )}
       </Toolbar>
       {isTablet && <MobileNavbar />}

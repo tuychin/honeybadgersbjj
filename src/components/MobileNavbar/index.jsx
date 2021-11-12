@@ -58,6 +58,7 @@ const MobileNavbar = () => {
       )}
       <Drawer
         sx={{
+          display: { sm: 'none' },
           width: DRAWER_WIDTH,
           flexShrink: 0,
           '& .MuiDrawer-paper': {
