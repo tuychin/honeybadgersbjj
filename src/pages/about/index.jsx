@@ -2,11 +2,12 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
 import logo from '../../images/logo.png';
 
-const AboutInner = styled(Container)(({ theme }) => ({
+const AboutInner = styled(Box)(({ theme }) => ({
   paddingTop: theme.spacing(12),
   paddingBottom: theme.spacing(12),
   [theme.breakpoints.between('xs', 'md')]: {
@@ -29,7 +30,7 @@ const Logo = styled('img')(({ theme }) => ({
 }));
 
 const About = () => (
-  <main>
+  <Container>
     <Helmet title="О нас | Honey badgers BJJ" />
     <AboutInner>
       <AboutTitle variant="h2" component="h1">
@@ -61,7 +62,7 @@ const About = () => (
         проводят семинары в Москве.
       </Typography>
     </AboutInner>
-  </main>
+  </Container>
 );
 
 export default About;

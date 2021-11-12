@@ -55,9 +55,9 @@ export const Layout = ({ children }) => (
     />
     <StyledWrapper>
       <Header />
-      {children}
-      <ContactModal />
+      <main>{children}</main>
       <Footer />
+      <ContactModal />
       <CookiesNotification />
     </StyledWrapper>
   </ThemeProvider>

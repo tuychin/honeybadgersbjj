@@ -1,4 +1,6 @@
 import React from 'react';
+import Box from '@mui/material/Box';
+
 import Showcase from '../sections/Showcase';
 import Information from '../sections/Information';
 import Benefits from '../sections/Benefits';
@@ -7,7 +9,7 @@ import Questions from '../sections/Questions';
 import TargetBanner from '../components/TargetBanner';
 
 const MainPage = () => (
-  <main>
+  <Box>
     <Showcase />
     <Information />
     <Benefits />
@@ -17,7 +19,7 @@ const MainPage = () => (
       text="Что смотришь? Записывайся на первую тренировку, она бесплатная."
       buttonText="Как записаться?"
     />
-  </main>
+  </Box>
 );
 
 export default MainPage;

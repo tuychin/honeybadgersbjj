@@ -3,10 +3,11 @@ import Helmet from 'react-helmet';
 import { styled } from '@mui/material/styles';
 import { navigate } from 'gatsby';
 import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
-const NotFoundPageInner = styled(Container)(({ theme }) => ({
+const NotFoundPageInner = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
@@ -24,7 +25,7 @@ const NotFoundPageText = styled(Typography)(({ theme }) => ({
 }));
 
 const NotFoundPage = () => (
-  <main>
+  <Container>
     <Helmet title="404 | Страница не найдена" />
     <NotFoundPageInner>
       <NotFoundPageText variant="h1" component="h1">
@@ -42,7 +43,7 @@ const NotFoundPage = () => (
         Вернуться
       </Button>
     </NotFoundPageInner>
-  </main>
+  </Container>
 );
 
 export default NotFoundPage;
