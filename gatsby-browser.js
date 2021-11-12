@@ -4,8 +4,8 @@ import React from 'react';
 import StoreProviderWrapper from './src/store/StoreProviderWrapper';
 import Layout from './src/layout';
 
-export const wrapPageElement = ({ element, props }) => (
-  <Layout path={props.location.path}>
+export const wrapPageElement = ({ element }) => (
+  <Layout>
     {element}
   </Layout>
 );
