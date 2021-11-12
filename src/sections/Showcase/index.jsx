@@ -27,22 +27,6 @@ const animateBackground = (target) => {
   });
 };
 
-// const animateContent = (target) => {
-//   anime({
-//     targets: target,
-//     scale: {
-//       value: [0, 1],
-//       easing: 'easeOutBounce',
-//       duration: 1500,
-//     },
-//     opacity: {
-//       value: [0, 1],
-//       easing: 'linear',
-//       duration: 700,
-//     },
-//   });
-// };
-
 const ShowcaseWrapper = styled('section')(() => ({
   display: 'flex',
   justifyContent: 'center',
@@ -100,11 +84,9 @@ const Showcase = () => {
   const dispatch = useDispatch();
 
   const imageRef = useRef(null);
-  // const contentRef = useRef(null);
 
   useEffect(() => {
     animateBackground(imageRef.current);
-    // animateContent(contentRef.current);
   }, []);
 
   const handleContactModalOpen = () => {
