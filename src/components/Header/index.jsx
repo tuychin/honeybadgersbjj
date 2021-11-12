@@ -36,8 +36,11 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-const Logo = styled('img')(() => ({
-  maxWidth: 60,
+const Logo = styled('img')(({ theme }) => ({
+  maxWidth: '60px',
+  [theme.breakpoints.between('xs', 'sm')]: {
+    maxWidth: '45px',
+  },
 }));
 
 const Header = ({ isFixed }) => {
