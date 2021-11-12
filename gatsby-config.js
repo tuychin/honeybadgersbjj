@@ -7,17 +7,12 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-material-ui',
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-preload-fonts',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
         icon: 'src/images/logo.png',
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-wrap-pages',
-      options: {
-        wrapperName: ['pagesWrapper.js'],
       },
     },
     {

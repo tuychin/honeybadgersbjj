@@ -12,8 +12,9 @@
     "start": "gatsby develop -o",
     "build": "gatsby build",
     "serve": "gatsby serve -o",
+    "production": "gatsby clean && gatsby build && gatsby serve -o",
     "clean": "gatsby clean",
-    "production": "gatsby clean && gatsby build && gatsby serve -o"
+    "load-fonts": "gatsby-preload-fonts"
   },
   "dependencies": {
     "@emotion/react": "^11.5.0",
@@ -26,17 +27,18 @@
     "@mui/system": "^5.0.4",
     "@reduxjs/toolkit": "^1.6.2",
     "animejs": "^3.2.1",
+    "babel-plugin-styled-components": "^1.13.3",
     "gatsby": "^3.14.2",
     "gatsby-plugin-favicons": "^2.0.0",
     "gatsby-plugin-image": "^1.14.1",
     "gatsby-plugin-manifest": "^3.14.0",
-    "gatsby-plugin-material-ui": "^4.0.2",
     "gatsby-plugin-mdx": "^2.14.0",
     "gatsby-plugin-netlify-cms": "^5.14.0",
+    "gatsby-plugin-preload-fonts": "^3.1.2",
     "gatsby-plugin-react-helmet": "^4.14.0",
     "gatsby-plugin-sharp": "^3.14.1",
     "gatsby-plugin-sitemap": "^4.10.0",
-    "gatsby-plugin-wrap-pages": "^1.1.1",
+    "gatsby-plugin-styled-components": "^5.1.0",
     "gatsby-remark-images": "^6.1.0",
     "gatsby-source-filesystem": "^3.14.0",
     "gatsby-transformer-remark": "^5.1.0",
@@ -49,7 +51,7 @@
     "react-helmet": "^6.1.0",
     "react-redux": "^7.2.5",
     "react-yandex-maps": "^4.6.0",
-    "styled-components": "^5.3.1"
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "eslint": "^7.12.1",
