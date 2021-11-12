@@ -21,7 +21,7 @@ const StyledWrapper = styled('div')(() => ({
   backgroundColor: theme.palette.background.default,
 }));
 
-export const Layout = ({ children }) => (
+export const Layout = ({ children, path }) => (
   <ThemeProvider theme={theme}>
     <CssBaseline />
     <Helmet
@@ -54,7 +54,7 @@ export const Layout = ({ children }) => (
       ]}
     />
     <StyledWrapper>
-      <Header />
+      <Header isFixed={path === '/'} />
       <main>{children}</main>
       <Footer />
       <ContactModal />
@@ -68,6 +68,7 @@ Layout.propTypes = {
     PropTypes.arrayOf(PropTypes.element),
     PropTypes.element,
   ]).isRequired,
+  path: PropTypes.string,
 };
 
 export default Layout;
