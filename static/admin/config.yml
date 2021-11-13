@@ -5,8 +5,8 @@ backend:
     create: "create(cms-admin): {{collection}}"
     update: "update(cms-admin): {{collection}}"
     delete: "delete(cms-admin): {{collection}}"
-    uploadMedia: "[skip ci] upload(cms-admin): media"
-    deleteMedia: "[skip ci] delete(cms-admin): media"
+    uploadMedia: "[skip ci] upload(cms-admin): "{{path}}""
+    deleteMedia: "[skip ci] delete(cms-admin): "{{path}}""
 
 locale: 'ru'
 media_folder: static/media
@@ -80,6 +80,8 @@ collections:
 
   - label: Параметры
     name: params
+    editor:
+      preview: false
     files:
     - file: src/markdown/params/common-info.md
       label: Общая информация
