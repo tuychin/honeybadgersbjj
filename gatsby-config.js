@@ -50,8 +50,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'markdown-data',
-        path: `${__dirname}/src/markdown-data`,
+        name: 'markdown',
+        path: `${__dirname}/src/markdown`,
       },
     },
     {
