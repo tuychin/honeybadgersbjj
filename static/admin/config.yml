@@ -21,6 +21,13 @@ collections:
         name: index
         fields:
           - {
+              label: ID,
+              name: id,
+              widget: string,
+              default: index-page,
+              pattern: ['index-page', Это поле нельзя поменять],
+            }
+          - {
               label: Первый экран,
               name: mainpitch,
               widget: object,
@@ -63,6 +70,13 @@ collections:
         label: О нас
         name: about
         fields:
+          - {
+              label: ID,
+              name: id,
+              widget: string,
+              default: about-page,
+              pattern: ['about-page', Это поле нельзя поменять],
+            }
           - { label: Заголовок, name: title, widget: string }
           - { label: Текст, name: body, widget: markdown }
 
@@ -75,6 +89,13 @@ collections:
       label: Общая информация
       name: common-info
       fields:
+        - {
+            label: ID,
+            name: id,
+            widget: string,
+            default: common-info,
+            pattern: ['common-info', Это поле нельзя поменять],
+          }
         - {
             label: Номер телефона,
             name: tel-number,
@@ -125,7 +146,9 @@ collections:
       name: seo
       fields:
         - {
-            label: Описание,
-            name: description,
+            label: ID,
+            name: id,
             widget: string,
+            default: seo,
+            pattern: ['seo', Это поле нельзя поменять],
           }
