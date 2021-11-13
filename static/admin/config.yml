@@ -25,7 +25,7 @@ collections:
               name: id,
               widget: string,
               default: index-page,
-              pattern: ['index-page', Это поле нельзя поменять],
+              pattern: ['index-page', Это поле нельзя менять],
             }
           - {
               label: Первый экран,
@@ -75,7 +75,7 @@ collections:
               name: id,
               widget: string,
               default: about-page,
-              pattern: ['about-page', Это поле нельзя поменять],
+              pattern: ['about-page', Это поле нельзя менять],
             }
           - { label: Заголовок, name: title, widget: string }
           - { label: Текст, name: body, widget: markdown }
@@ -94,7 +94,7 @@ collections:
             name: id,
             widget: string,
             default: common-info,
-            pattern: ['common-info', Это поле нельзя поменять],
+            pattern: ['common-info', Это поле нельзя менять],
           }
         - {
             label: Номер телефона,
@@ -150,5 +150,5 @@ collections:
             name: id,
             widget: string,
             default: seo,
-            pattern: ['seo', Это поле нельзя поменять],
+            pattern: ['seo', Это поле нельзя менять],
           }
