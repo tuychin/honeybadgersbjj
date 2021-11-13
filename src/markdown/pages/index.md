@@ -1,4 +1,5 @@
 ---
+id: index-page
 mainpitch:
   title: HONEY BADGERS
   description: Медоед занесён в книгу рекордов Гиннеса, как самое бесстрашное
