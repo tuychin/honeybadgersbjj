@@ -5,8 +5,8 @@ backend:
     create: "create(cms-admin): {{collection}}"
     update: "update(cms-admin): {{collection}}"
     delete: "delete(cms-admin): {{collection}}"
-    uploadMedia: "[skip ci] upload(cms-admin): "{{path}}""
-    deleteMedia: "[skip ci] delete(cms-admin): "{{path}}""
+    uploadMedia: "[skip ci] upload(cms-admin): “{{path}}”"
+    deleteMedia: "[skip ci] delete(cms-admin): “{{path}}”"
 
 locale: 'ru'
 media_folder: static/media
@@ -20,12 +20,6 @@ collections:
         label: Главная страница
         name: index
         fields:
-          - {
-              label: "Template Key",
-              name: "templateKey",
-              widget: "hidden",
-              default: "index-page",
-            }
           - {
               label: Первый экран,
               name: mainpitch,
@@ -69,12 +63,6 @@ collections:
         label: О нас
         name: about
         fields:
-          - {
-              label: "Template Key",
-              name: "templateKey",
-              widget: "hidden",
-              default: "about-page",
-            }
           - { label: Заголовок, name: title, widget: string }
           - { label: Текст, name: body, widget: markdown }
 
@@ -87,12 +75,6 @@ collections:
       label: Общая информация
       name: common-info
       fields:
-        - {
-            label: "Template Key",
-            name: "templateKey",
-            widget: "hidden",
-            default: "common-info",
-          }
         - {
             label: Номер телефона,
             name: tel-number,
@@ -143,8 +125,7 @@ collections:
       name: seo
       fields:
         - {
-            label: "Template Key",
-            name: "templateKey",
-            widget: "hidden",
-            default: "seo",
+            label: Описание,
+            name: description,
+            widget: string,
           }
