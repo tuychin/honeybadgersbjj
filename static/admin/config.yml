@@ -2,11 +2,11 @@ backend:
   name: git-gateway
   branch: master
   commit_messages:
-    create: "Create {{collection}}"
-    update: "Update {{collection}}"
-    delete: "Delete {{collection}}"
-    uploadMedia: "[skip ci] Upload"
-    deleteMedia: "[skip ci] Delete"
+    create: "create(cms-admin): {{collection}}"
+    update: "update(cms-admin): {{collection}}"
+    delete: "delete(cms-admin): {{collection}}"
+    uploadMedia: "[skip ci] upload(cms-admin): media"
+    deleteMedia: "[skip ci] delete(cms-admin): media"
 
 locale: 'ru'
 media_folder: static/media
