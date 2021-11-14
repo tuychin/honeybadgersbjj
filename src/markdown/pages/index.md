@@ -32,6 +32,11 @@ benefits:
     image: /media/pool.jpg
     tags:
       - tag: входит в абонемент
+  - title: Тренажёрный зал
+    description: Зал CROSSFIT и зона Cycle, блочные и рычажные тренажеры.
+    tags:
+      - tag: входит в абонемент
+    image: /media/gym.jpg
 qa:
   - question: Что я буду изучать на тренировке?
     answer: Броски, болевые и удушающие приёмы, перевороты, позиции в
