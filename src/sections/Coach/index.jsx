@@ -1,4 +1,5 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import { useDispatch } from 'react-redux';
 import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
@@ -7,8 +8,25 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
 import { openContactModal } from '../../components/ContactModal/contactModalSlice';
-import coach from '../../images/coach.webp';
-import bjjBg from '../../images/bjj_bg.webp';
+
+const useData = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      markdownRemark(frontmatter: {id: {eq: "index-page"}}) {
+        frontmatter {
+          coach {
+            name
+            photo
+            description
+            background
+          }
+        }
+      }
+    }
+  `);
+
+  return data.markdownRemark.frontmatter.coach;
+};
 
 const CoachWrapper = styled('section')(({ theme }) => ({
   display: 'flex',
@@ -16,7 +34,6 @@ const CoachWrapper = styled('section')(({ theme }) => ({
   alignItems: 'center',
   paddingTop: theme.spacing(12),
   paddingBottom: theme.spacing(12),
-  backgroundImage: `url(${bjjBg})`,
   backgroundColor: theme.palette.background.default,
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
@@ -43,6 +60,12 @@ const CoachImg = styled('img')(() => ({
 }));
 
 const Coach = () => {
+  const {
+    name,
+    description,
+    photo,
+    background,
+  } = useData();
   const dispatch = useDispatch();
 
   const handleContactModalOpen = () => {
@@ -50,7 +73,7 @@ const Coach = () => {
   };
 
   return (
-    <CoachWrapper>
+    <CoachWrapper sx={{ backgroundImage: `url(${background})` }}>
       <Typography
         sx={{
           mb: {
@@ -64,7 +87,7 @@ const Coach = () => {
         Тренер
       </Typography>
       <CoachInner>
-        <CoachImg sx={{ boxShadow: 3, m: 3 }} src={coach} />
+        <CoachImg sx={{ boxShadow: 3, m: 3 }} src={photo} />
         <Box
           sx={{
             display: 'flex',
@@ -73,11 +96,24 @@ const Coach = () => {
               xs: 'center',
               md: 'start',
             },
+            maxWidth: '500px',
           }}
         >
           <Typography sx={{ mb: 3 }} variant="h3" component="h3">
-            Кирилл Гордеев
+            {name}
           </Typography>
+          {description && (
+          <Typography
+            sx={{
+              mb: 3,
+              textAlign: { xs: 'center', md: 'left' },
+            }}
+            variant="body1"
+            component="div"
+          >
+            {description}
+          </Typography>
+          )}
           <Button
             sx={{ mb: 3 }}
             size="large"
