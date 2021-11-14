@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { useStaticQuery, graphql } from 'gatsby';
 import anime from 'animejs/lib/anime.es';
@@ -125,20 +124,6 @@ const Showcase = () => {
       </ContentWrapper>
     </ShowcaseWrapper>
   );
-};
-
-Showcase.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.shape({
-        mainpitch: PropTypes.shape({
-          title: PropTypes.string,
-          description: PropTypes.string,
-          image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-        }),
-      }),
-    }),
-  }),
 };
 
 export default Showcase;
