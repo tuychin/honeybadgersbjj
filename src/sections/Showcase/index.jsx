@@ -1,12 +1,13 @@
 import React, { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import { useStaticQuery, graphql } from 'gatsby';
 import anime from 'animejs/lib/anime.es';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
 import { openContactModal } from '../../components/ContactModal/contactModalSlice';
-import showcase from '../../images/showcase.jpg';
 
 const animateBackground = (target) => {
   anime({
@@ -81,8 +82,22 @@ const Overlay = styled('div')(() => ({
 }));
 
 const Showcase = () => {
-  const dispatch = useDispatch();
+  const data = useStaticQuery(graphql`
+    query {
+      markdownRemark(frontmatter: {id: {eq: "index-page"}}) {
+        frontmatter {
+          mainpitch {
+            title
+            description
+            image
+          }
+        }
+      }
+    }
+  `);
 
+  const { title, description, image } = data.markdownRemark.frontmatter.mainpitch;
+  const dispatch = useDispatch();
   const imageRef = useRef(null);
 
   useEffect(() => {
@@ -95,14 +110,14 @@ const Showcase = () => {
 
   return (
     <ShowcaseWrapper>
-      <StyledImage ref={imageRef} src={showcase} alt="bjj image" />
+      <StyledImage ref={imageRef} src={image} alt="background-image" />
       <Overlay />
       <ContentWrapper>
-        <StyledTypography variant="h1">HONEY BADGERS</StyledTypography>
+        <StyledTypography variant="h1">
+          {title}
+        </StyledTypography>
         <StyledTypography>
-          Медоед занесён в книгу рекордов Гиннеса, как самое бесстрашное животное в мире.
-          Он способен вести схватку один против нескольких львов и есть королевских кобр.
-          Хочешь быть как медоед? Запишись на тренировку по бразильскому джиу-джитсу.
+          {description}
         </StyledTypography>
         <Button size="large" variant="contained" color="primary" onClick={handleContactModalOpen}>
           Как записаться?
@@ -110,6 +125,20 @@ const Showcase = () => {
       </ContentWrapper>
     </ShowcaseWrapper>
   );
+};
+
+Showcase.propTypes = {
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.shape({
+        mainpitch: PropTypes.shape({
+          title: PropTypes.string,
+          description: PropTypes.string,
+          image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+        }),
+      }),
+    }),
+  }),
 };
 
 export default Showcase;
