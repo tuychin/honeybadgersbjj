@@ -2,8 +2,21 @@
 id: about-page
 title: О нас
 ---
-<img src="/media/logo.png" alt="logo" align="right" style="width: 60px">
+<!--- Не удалять, не редактировать START (CSS логотипа) --->
+<style type="text/css" rel="stylesheet">
+.about-page-logo {
+  max-width: 200px;
+  margin: 0px 0px 10px 10px;
+}
+@media (max-width: 600px) {
+  .about-page-logo {
+    max-width: 100px;
+  }
+}
+</style>
+<img class="about-page-logo" src="/media/logo.png" alt="logo" align="right">
 
+<!--- Не удалять, не редактировать END --->
 
 Мы полностью сконцентрированы на джиу-джитсу и продвижении здорового образа жизни. В наших залах тренируются как действующие спортсмены, так и люди, которые просто хотят быть в отличной физической форме и обрести чуть больше уверенности в себе.
 
