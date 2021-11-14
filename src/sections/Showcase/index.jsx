@@ -8,6 +8,24 @@ import Button from '@mui/material/Button';
 
 import { openContactModal } from '../../components/ContactModal/contactModalSlice';
 
+const useData = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      markdownRemark(frontmatter: {id: {eq: "index-page"}}) {
+        frontmatter {
+          mainpitch {
+            title
+            description
+            image
+          }
+        }
+      }
+    }
+  `);
+
+  return data.markdownRemark.frontmatter.mainpitch;
+};
+
 const animateBackground = (target) => {
   anime({
     targets: target,
@@ -81,21 +99,7 @@ const Overlay = styled('div')(() => ({
 }));
 
 const Showcase = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      markdownRemark(frontmatter: {id: {eq: "index-page"}}) {
-        frontmatter {
-          mainpitch {
-            title
-            description
-            image
-          }
-        }
-      }
-    }
-  `);
-
-  const { title, description, image } = data.markdownRemark.frontmatter.mainpitch;
+  const { title, description, image } = useData();
   const dispatch = useDispatch();
   const imageRef = useRef(null);
 
