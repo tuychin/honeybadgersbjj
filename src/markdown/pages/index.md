@@ -41,6 +41,7 @@ coach:
   name: Кирилл Гордеев
   photo: /media/coach.webp
   description: ""
+  background: /media/bjj_bg.webp
 qa:
   - answer: Бразильское джиу-джитсу (BJJ) - боевое искусство и международное
       спортивное единоборство, основой которого является борьба в партере, а
