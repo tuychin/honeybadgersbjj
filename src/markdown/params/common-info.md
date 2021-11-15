@@ -15,4 +15,5 @@ socials:
   - login: tuychin.r
     name: Instagram
     href: https://www.instagram.com/tuychin.r
+logo: /media/logo.png
 ---
