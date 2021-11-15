@@ -7,7 +7,9 @@ title: О нас
 <style type="text/css" rel="stylesheet">
 .about-page-logo {
   max-width: 200px;
-  margin: 50px 0px 10px 10px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  margin-left: 10px;
 }
 @media (max-width: 600px) {
   .about-page-logo {
