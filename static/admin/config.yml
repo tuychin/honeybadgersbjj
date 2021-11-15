@@ -44,26 +44,48 @@ collections:
               widget: list,
               fields:
                 [
-                  { label: Изображение, name: image, widget: image },
                   { label: Преимущество, name: title, widget: string },
                   { label: Описание, name: description, widget: text },
-                  { label: Tags, name: tags, widget: list },
+                  { label: Изображение, name: image, widget: image },
+                  {
+                    label: Теги,
+                    name: tags,
+                    widget: list,
+                    fields: [
+                      { label: Тег, name: tag, widget: string },
+                    ],
+                  },
+                ],
+            }
+          - {
+              label: Тренер,
+              name: coach,
+              widget: object,
+              fields:
+                [
+                  { label: Имя, name: name, widget: string },
+                  { label: Описание, name: description, widget: text, required: false, default: '' },
+                  { label: Фото, name: photo, widget: image },
+                  { label: Фон, name: background, widget: image },
                 ],
             }
           - {
               label: Вопросы,
               name: qa,
               widget: list,
-              fields:
-                [
-                  { label: Вопрос, name: question, widget: string },
-                  { label: Ответ, name: answer, widget: text },
-                ],
+              fields: [
+                { label: Вопрос, name: question, widget: string },
+                { label: Ответ, name: answer, widget: text },
+              ],
             }
           - {
-              label: Баннер целевого действия,
+              label: Целевой баннер,
               name: target-banner,
-              widget: text,
+              widget: object,
+              fields: [
+                { label: Текст, name: text, widget: text },
+                { label: Текст кнопки, name: button, widget: string },
+              ],
             }
 
       - file: src/markdown/pages/about.md
