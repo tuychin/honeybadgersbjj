@@ -7,7 +7,7 @@ location:
   coordinates:
     coordinatesX: "55.708303"
     coordinatesY: "37.652822"
-  address: г. Москва, ул. Ленинская Слобода, 19\n(м. Автозаводская)
+  address: г. Москва, ул. Ленинская Слобода, 19 (м. Автозаводская)
 socials:
   - login: "@tuychin_r"
     href: https://t.me/tuychin_r
