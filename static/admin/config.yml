@@ -139,7 +139,7 @@ collections:
             widget: object,
             fields:
               [
-                { label: Адрес, name: address, widget: string },
+                { label: Адрес, name: address, widget: text },
                 {
                   label: Координаты,
                   name: coordinates,
@@ -162,6 +162,11 @@ collections:
                 { label: Логин, name: login, widget: string },
                 { label: Ссылка, name: href, widget: string },
               ],
+          }
+        - {
+            label: Логотип,
+            name: logo,
+            widget: image,
           }
     - file: src/markdown/params/seo.md
       label: СЕО-оптимизация
