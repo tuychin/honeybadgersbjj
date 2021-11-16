@@ -51,6 +51,7 @@
     "react-helmet": "^6.1.0",
     "react-redux": "^7.2.5",
     "react-yandex-maps": "^4.6.0",
+    "string-similarity": "^4.0.4",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
