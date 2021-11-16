@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import { openContactModal } from '../ContactModal/contactModalSlice';
 
 import InnerLink from '../InnerLink';
-import { PAGES } from '../../const';
+import { pages } from '../../const';
 
 const DesktopNavbar = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -25,7 +25,7 @@ const Navbar = () => {
 
   return (
     <DesktopNavbar>
-      {PAGES.map(({ name, href }) => (
+      {pages.map(({ name, href }) => (
         <InnerLink
           sx={{ mr: 3 }}
           to={href}

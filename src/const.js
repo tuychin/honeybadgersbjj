@@ -1,4 +1,4 @@
-export const PAGES = [
+export const pages = [
   { name: 'Главная', href: '/' },
   { name: 'О нас', href: '/about' },
 ];
@@ -24,7 +24,7 @@ export const Instagram = {
 };
 
 export default {
-  PAGES,
+  pages,
   Location,
   TelNumber,
   Telegram,

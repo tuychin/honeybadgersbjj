@@ -9,7 +9,7 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 
 import InnerLink from '../InnerLink';
 import {
-  PAGES,
+  pages,
   TelNumber,
   Telegram,
   Instagram,
@@ -88,7 +88,7 @@ const Footer = () => (
         </Typography>
 
         <FooterSection>
-          {PAGES.map(({ name, href }) => (
+          {pages.map(({ name, href }) => (
             <InnerLink to={href} key={`${name}${href}`}>
               {name}
             </InnerLink>

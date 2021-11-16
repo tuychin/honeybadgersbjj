@@ -17,7 +17,7 @@ import {
 } from './mobileNavbarSlice';
 import InnerLink from '../InnerLink';
 import { openContactModal } from '../ContactModal/contactModalSlice';
-import { PAGES } from '../../const';
+import { pages } from '../../const';
 
 const DRAWER_WIDTH = 240;
 
@@ -77,7 +77,7 @@ const MobileNavbar = () => {
         </DrawerHeader>
         <Divider />
         <List onClick={handleClose}>
-          {PAGES.map(({ name, href }) => (
+          {pages.map(({ name, href }) => (
             <InnerLink
               to={href}
               color="inherit"
