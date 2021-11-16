@@ -98,7 +98,7 @@ const ContactModal = ({
                 <Typography variant="subtitle1" component="div">
                   {`Через ${name}:`}
                 </Typography>
-                <Link href={href} target="_blank" rel="noopener noreferrer nofollow">
+                <Link href={href} target="_blank" rel="noopener nofollow">
                   {login}
                 </Link>
               </Box>

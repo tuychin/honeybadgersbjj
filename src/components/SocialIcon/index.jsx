@@ -9,7 +9,7 @@ const SocialIcon = ({ href, name }) => {
   const Icon = useIcons(name);
 
   return (
-    <Link href={href} key={name} target="_blank" rel="noopener noreferrer nofollow">
+    <Link href={href} key={name} target="_blank" rel="noopener nofollow">
       <IconButton color="primary">
         <Icon>{`${name.toLowerCase()}`}</Icon>
       </IconButton>

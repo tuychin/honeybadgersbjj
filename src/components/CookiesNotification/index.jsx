@@ -37,7 +37,7 @@ const CookiesNotification = () => {
         <Link
           href="https://ru.wikipedia.org/wiki/Cookie"
           target="_blank"
-          rel="noopener noreferrer nofollow"
+          rel="noopener nofollow"
         >
           Подробнее
         </Link>
