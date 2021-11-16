@@ -15,7 +15,6 @@ import {
 import InnerLink from '../InnerLink';
 import DesktopNavbar from '../DesktopNavbar';
 import MobileNavbar from '../MobileNavbar';
-import logo from '../../images/logo.png';
 
 const DRAWER_WIDTH = 240;
 
@@ -43,7 +42,7 @@ const Logo = styled('img')(({ theme }) => ({
   },
 }));
 
-const Header = ({ isFixed }) => {
+const Header = ({ isFixed, logo }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
   const isTablet = useMediaQuery(theme.breakpoints.down('sm'));
@@ -87,6 +86,7 @@ const Header = ({ isFixed }) => {
 
 Header.propTypes = {
   isFixed: PropTypes.bool,
+  logo: PropTypes.string,
 };
 
 export default Header;

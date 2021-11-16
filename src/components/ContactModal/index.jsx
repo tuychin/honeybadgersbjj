@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
+import parsePhoneNumber from 'libphonenumber-js';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -17,12 +19,6 @@ import {
   closeContactModal,
 } from './contactModalSlice';
 
-import {
-  Location,
-  TelNumber,
-  Telegram,
-  Instagram,
-} from '../../const';
 import YandexMap from '../YandexMap';
 import ErrorBoundary from '../ErrorBoundary';
 
@@ -41,7 +37,14 @@ const ContentWrapper = styled(Container)(({ theme }) => ({
   },
 }));
 
-const ContactModal = () => {
+const ContactModal = ({
+  socials,
+  telNumber,
+  plan,
+  price,
+  address,
+  coordinates,
+}) => {
   const dispatch = useDispatch();
   const isOpen = useSelector(selectIsContactModalOpen);
 
@@ -83,30 +86,25 @@ const ContactModal = () => {
             <Typography variant="subtitle1" component="div">
               По телефону:
             </Typography>
-            <Link href={TelNumber.HREF}>
-              {TelNumber.LABEL}
+            <Link href={`tel:${telNumber}`}>
+              {parsePhoneNumber(telNumber).formatNational()}
             </Link>
           </Box>
           <Divider />
 
-          <Box sx={{ margin: '20px 0px' }}>
-            <Typography variant="subtitle1" component="div">
-              Через Telegram:
-            </Typography>
-            <Link href={Telegram.HREF} target="_blank" rel="noopener noreferrer nofollow">
-              {Telegram.LABEL}
-            </Link>
-          </Box>
-          <Divider />
-
-          <Box sx={{ margin: '20px 0px' }}>
-            <Typography variant="subtitle1" component="div">
-              Через Instagram Direct:
-            </Typography>
-            <Link href={Instagram.HREF} target="_blank" rel="noopener noreferrer nofollow">
-              {Instagram.LABEL}
-            </Link>
-          </Box>
+          {socials.map(({ login, href, name }, idx) => (
+            <>
+              <Box sx={{ margin: '20px 0px' }}>
+                <Typography variant="subtitle1" component="div">
+                  {`Через ${name}:`}
+                </Typography>
+                <Link href={href} target="_blank" rel="noopener noreferrer nofollow">
+                  {login}
+                </Link>
+              </Box>
+              {(idx !== socials.length - 1) && <Divider />}
+            </>
+          ))}
           <Divider sx={{ display: { xs: 'block', md: 'none' } }} />
         </Box>
 
@@ -116,7 +114,7 @@ const ContactModal = () => {
               Расписание:
             </Typography>
             <Typography>
-              ПН, СР, ПТ - с 20:00 до 22:00
+              {plan}
             </Typography>
           </Box>
           <Divider />
@@ -125,7 +123,7 @@ const ContactModal = () => {
             <Typography variant="subtitle1" component="div">
               Абонемент:
             </Typography>
-            <Typography>6.000₽/месяц</Typography>
+            <Typography>{price}</Typography>
           </Box>
           <Divider />
 
@@ -133,18 +131,31 @@ const ContactModal = () => {
             <Typography variant="subtitle1" component="div">
               Адрес:
             </Typography>
-            <Typography>{Location.ADDRESS}</Typography>
+            <Typography>{address}</Typography>
           </Box>
           <ErrorBoundary>
             <YandexMap
-              coordinates={Location.COORDINATES}
-              description={`Honey badgers BJJ. ${Location.ADDRESS}`}
+              coordinates={coordinates}
+              description={address}
             />
           </ErrorBoundary>
         </Box>
       </ContentWrapper>
     </Dialog>
   );
+};
+
+ContactModal.propTypes = {
+  socials: PropTypes.arrayOf(PropTypes.shape({
+    login: PropTypes.string,
+    href: PropTypes.string,
+    name: PropTypes.string,
+  })),
+  telNumber: PropTypes.string,
+  plan: PropTypes.string,
+  price: PropTypes.string,
+  address: PropTypes.string,
+  coordinates: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default ContactModal;

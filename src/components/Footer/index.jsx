@@ -1,19 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import parsePhoneNumber from 'libphonenumber-js';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import TelegramIcon from '@mui/icons-material/Telegram';
+import SocialIcon from '../SocialIcon';
 
 import InnerLink from '../InnerLink';
-import {
-  pages,
-  TelNumber,
-  Telegram,
-  Instagram,
-} from '../../const';
+import { pages } from '../../const';
 
 const FooterWrapper = styled('footer')(({ theme }) => ({
   display: 'flex',
@@ -38,7 +33,7 @@ const FooterSection = styled(Box)(({ theme }) => ({
   },
 }));
 
-const Footer = () => (
+const Footer = ({ socials, telNumber }) => (
   <FooterWrapper sx={{ boxShadow: 3 }}>
     <Box sx={{
       display: 'flex',
@@ -63,22 +58,12 @@ const Footer = () => (
           Контакты:
         </Typography>
 
-        <Link href={TelNumber.HREF}>
-          {TelNumber.LABEL}
+        <Link href={`tel:${telNumber}`}>
+          {parsePhoneNumber(telNumber).formatNational()}
         </Link>
 
         <Box sx={{ marginLeft: { xs: 0, sm: '-10px' } }}>
-          <Link href={Instagram.HREF} target="_blank" rel="noopener noreferrer nofollow">
-            <IconButton color="primary">
-              <InstagramIcon />
-            </IconButton>
-          </Link>
-
-          <Link href={Telegram.HREF} target="_blank" rel="noopener noreferrer nofollow">
-            <IconButton color="primary">
-              <TelegramIcon />
-            </IconButton>
-          </Link>
+          {socials.map(({ href, name }) => <SocialIcon href={href} name={name} key={name} />)}
         </Box>
       </FooterSection>
 
@@ -114,5 +99,14 @@ const Footer = () => (
     </Box>
   </FooterWrapper>
 );
+
+Footer.propTypes = {
+  socials: PropTypes.arrayOf(PropTypes.shape({
+    login: PropTypes.string,
+    href: PropTypes.string,
+    name: PropTypes.string,
+  })),
+  telNumber: PropTypes.string,
+};
 
 export default Footer;

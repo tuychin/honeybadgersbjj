@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-filename-extension */
 import React, { useState, useEffect, useRef } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { styled, ThemeProvider } from '@mui/material/styles';
@@ -12,6 +13,35 @@ import ContactModal from './components/ContactModal';
 import CookiesNotification from './components/CookiesNotification';
 
 import theme from './themes/primary';
+
+const useData = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      markdownRemark(frontmatter: {id: {eq: "common-info"}}) {
+        frontmatter {
+          socials {
+            login
+            href
+            name
+          }
+          tel_number
+          logo
+          plan
+          price
+          location {
+            address
+            coordinates {
+              coordinatesX
+              coordinatesY
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  return data.markdownRemark.frontmatter;
+};
 
 const animateContentEmergence = (target) => {
   anime({
@@ -34,6 +64,20 @@ const StyledWrapper = styled('div')(() => ({
 }));
 
 export const Layout = ({ children }) => {
+  const {
+    socials,
+    tel_number: telNumber,
+    logo,
+    plan,
+    price,
+    location: {
+      address,
+      coordinates: {
+        coordinatesX,
+        coordinatesY,
+      },
+    },
+  } = useData();
   const [pathName, setPathName] = useState('');
   const contentRef = useRef(null);
 
@@ -78,10 +122,20 @@ export const Layout = ({ children }) => {
         ]}
       />
       <StyledWrapper ref={contentRef}>
-        <Header isFixed={pathName === '/'} />
+        <Header isFixed={pathName === '/'} logo={logo} />
         <main>{children}</main>
-        <Footer />
-        <ContactModal />
+        <Footer
+          socials={socials}
+          telNumber={telNumber}
+        />
+        <ContactModal
+          socials={socials}
+          telNumber={telNumber}
+          plan={plan}
+          price={price}
+          address={address}
+          coordinates={[coordinatesX, coordinatesY]}
+        />
         <CookiesNotification />
       </StyledWrapper>
     </ThemeProvider>
