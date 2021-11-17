@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-filename-extension */
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
+import { useLocation } from '@reach/router';
 import Helmet from 'react-helmet';
 import { styled, ThemeProvider } from '@mui/material/styles';
 import anime from 'animejs/lib/anime.es';
@@ -79,16 +80,12 @@ export const Layout = ({ children }) => {
       },
     },
   } = useData();
-  const [pathName, setPathName] = useState('');
+  const { pathname } = useLocation();
   const contentRef = useRef(null);
 
   useEffect(() => {
     animateContentEmergence(contentRef.current);
   }, []);
-
-  useEffect(() => {
-    setPathName(window.location.pathname);
-  }, [children]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -120,7 +117,7 @@ export const Layout = ({ children }) => {
       />
       <CssBaseline />
       <StyledWrapper ref={contentRef}>
-        <Header isFixed={pathName === '/'} logo={logo} />
+        <Header isFixed={pathname === '/'} logo={logo} />
         <main>{children}</main>
         <Footer
           socials={socials}
