@@ -1,12 +1,25 @@
+const SiteParams = {
+  URL: 'https://honeybadgersbjj.ru',
+  TITLE: 'honeybadgersbjj',
+};
+
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://honeybadgersbjj.ru',
-    title: 'honeybadgersbjj',
+    siteUrl: SiteParams.URL,
+    title: SiteParams.TITLE,
   },
   plugins: [
     'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: SiteParams.URL,
+        sitemap: `${SiteParams.URL}/sitemap/sitemap-index.xml`,
+        policy: [{ userAgent: '*', disallow: ['/admin'] }],
+      },
+    },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-preload-fonts',
     {
