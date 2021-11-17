@@ -8,7 +8,6 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
 import { openContactModal } from '../ContactModal/contactModalSlice';
-import bjjBg from '../../images/bjj_bg.webp';
 
 const BannerWrapper = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -16,7 +15,6 @@ const BannerWrapper = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   paddingTop: theme.spacing(12),
   paddingBottom: theme.spacing(12),
-  backgroundImage: `url(${bjjBg})`,
   backgroundColor: theme.palette.background.default,
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
@@ -35,7 +33,7 @@ const BannerInner = styled(Container)(({ theme }) => ({
   },
 }));
 
-const Banner = ({ text, buttonText }) => {
+const Banner = ({ text, buttonText, bgImage }) => {
   const dispatch = useDispatch();
 
   const handleContactModalOpen = () => {
@@ -43,7 +41,7 @@ const Banner = ({ text, buttonText }) => {
   };
 
   return (
-    <BannerWrapper>
+    <BannerWrapper sx={{ backgroundImage: `url(${bgImage})` }}>
       <BannerInner>
         <Typography
           sx={{ mr: 3, mb: { xs: 4, md: 0 } }}
@@ -69,6 +67,7 @@ const Banner = ({ text, buttonText }) => {
 Banner.propTypes = {
   text: PropTypes.string.isRequired,
   buttonText: PropTypes.string,
+  bgImage: PropTypes.string.isRequired,
 };
 
 export default Banner;

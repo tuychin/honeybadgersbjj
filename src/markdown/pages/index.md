@@ -59,4 +59,5 @@ qa:
 target-banner:
   text: Что смотришь? Записывайся на первую тренировку, она бесплатная.
   button: Как записаться?
+  bg-image: /media/bjj_bg.webp
 ---

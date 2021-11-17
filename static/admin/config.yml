@@ -85,6 +85,7 @@ collections:
               fields: [
                 { label: Текст, name: text, widget: text },
                 { label: Текст кнопки, name: button, widget: string },
+                { label: Изображение фона, name: bg-image, widget: image },
               ],
             }
 

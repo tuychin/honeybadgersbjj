@@ -16,6 +16,7 @@ const useData = () => {
           target_banner {
             text
             button
+            bg_image
           }
         }
       }
@@ -26,7 +27,7 @@ const useData = () => {
 };
 
 const MainPage = () => {
-  const { text, button } = useData();
+  const { text, button, bg_image: bgImage } = useData();
   return (
     <Box>
       <Showcase />
@@ -37,6 +38,7 @@ const MainPage = () => {
       <TargetBanner
         text={text}
         buttonText={button}
+        bgImage={bgImage}
       />
     </Box>
   );
