@@ -1,10 +1,11 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+
+import Seo from '../../seo';
 
 const useData = () => {
   const data = useStaticQuery(graphql`
@@ -41,7 +42,7 @@ const About = () => {
 
   return (
     <Container>
-      <Helmet title="О нас | Honey badgers BJJ" />
+      <Seo pageTitle="О нас" />
       <AboutInner>
         <AboutTitle variant="h2" component="h1">
           {title}

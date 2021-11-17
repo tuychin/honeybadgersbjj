@@ -1,16 +1,22 @@
 const SiteParams = {
   URL: 'https://honeybadgersbjj.ru',
-  TITLE: 'honeybadgersbjj',
+  LABEL: 'honeybadgersbjj',
 };
 
 module.exports = {
   siteMetadata: {
     siteUrl: SiteParams.URL,
-    title: SiteParams.TITLE,
+    title: SiteParams.LABEL,
   },
   plugins: [
     'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-plugin-react-helmet-canonical-urls',
+      options: {
+        siteUrl: SiteParams.URL,
+      },
+    },
     'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-robots-txt',

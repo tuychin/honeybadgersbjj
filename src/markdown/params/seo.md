@@ -1,7 +1,7 @@
 ---
 id: seo
-title: Honey badgers BJJ team
-description: Тренировки по BJJ в Москве
-url: https://honeybadgersbjj.ru
-image: /media/logo.png
+seoTitle: Honey badgers BJJ team
+seoDescription: Тренировки по BJJ в Москве
+seoUrl: https://honeybadgersbjj.ru
+seoImage: /media/logo.png
 ---

@@ -170,7 +170,7 @@ collections:
             widget: image,
           }
     - file: src/markdown/params/seo.md
-      label: СЕО-оптимизация
+      label: SEO-оптимизация (для поисковиков и соц. сетей)
       name: seo
       fields:
         - {
@@ -179,4 +179,26 @@ collections:
             widget: string,
             default: seo,
             pattern: ['seo', Это поле нельзя менять],
+          }
+        - {
+            label: Заголовок (title),
+            name: seoTitle,
+            widget: string,
+          }
+        - {
+            label: Описание (description),
+            name: seoDescription,
+            widget: text,
+          }
+        - {
+            label: URL сайта,
+            name: seoUrl,
+            widget: string,
+            required: false,
+          }
+        - {
+            label: Изображение,
+            name: seoImage,
+            widget: image,
+            required: false,
           }

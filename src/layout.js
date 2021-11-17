@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import ContactModal from './components/ContactModal';
 import CookiesNotification from './components/CookiesNotification';
 
+import Seo from './seo';
 import theme from './themes/primary';
 
 const useData = () => {
@@ -91,12 +92,8 @@ export const Layout = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
+      <Seo />
       <Helmet
-        title="Honey badgers BJJ team"
-        meta={[
-          { name: 'description', content: 'Тренировки по BJJ в Москве' },
-        ]}
         link={[
           { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
           { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
@@ -121,6 +118,7 @@ export const Layout = ({ children }) => {
           },
         ]}
       />
+      <CssBaseline />
       <StyledWrapper ref={contentRef}>
         <Header isFixed={pathName === '/'} logo={logo} />
         <main>{children}</main>
