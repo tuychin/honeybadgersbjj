@@ -26,7 +26,7 @@ const BenefitItem = ({
       <CardMedia
         component="img"
         height="140"
-        image={img}
+        fluid={`${img}?nf_resize=fit&h=140`}
         alt={title}
       />
       <CardContent sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>

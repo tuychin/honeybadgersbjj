@@ -63,7 +63,7 @@ const Header = ({ isFixed, logo }) => {
           sx={{ display: 'flex', alignItems: 'center' }}
           to="/"
         >
-          <Logo src={logo} alt="Honey Badgers BJJ Logo" />
+          <Logo src={`${logo}?nf_resize=fit&w=60&h=60`} alt="Honey Badgers BJJ Logo" />
         </InnerLink>
         {isTablet ? (
           <IconButton
