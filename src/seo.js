@@ -13,6 +13,7 @@ const useData = () => {
           seoUrl
           seoTitle
           seoDescription
+          seoKeywords
           seoImage
         }
       }
@@ -26,6 +27,7 @@ const SEO = ({
   title = null,
   pageTitle = null,
   description = null,
+  keywords = null,
   image = null,
   isArticle = false,
 }) => {
@@ -35,12 +37,14 @@ const SEO = ({
     seoUrl,
     seoTitle,
     seoDescription,
+    seoKeywords,
     seoImage,
   } = useData();
 
   const seo = {
     title: title || (pageTitle ? `${pageTitle} | ${seoTitle}` : seoTitle),
     description: description || seoDescription,
+    keywords: keywords || seoKeywords,
     image: `${seoUrl}${image || seoImage}`,
     url: `${seoUrl}${pathname}`,
   };
@@ -48,6 +52,8 @@ const SEO = ({
   return (
     <Helmet title={seo.title}>
       <meta name="description" content={seo.description} />
+
+      <meta name="keywords" content={seo.keywords} />
 
       <meta name="image" content={seo.image} />
 
@@ -72,6 +78,7 @@ SEO.propTypes = {
   title: PropTypes.string,
   pageTitle: PropTypes.string,
   description: PropTypes.string,
+  keywords: PropTypes.string,
   image: PropTypes.string,
   isArticle: PropTypes.bool,
 };

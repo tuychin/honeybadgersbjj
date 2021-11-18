@@ -1,12 +1,13 @@
 backend:
   name: git-gateway
   branch: master
+  cms_label_prefix:	netlify-cms/
   commit_messages:
-    create: "create(cms-admin): {{collection}}"
-    update: "update(cms-admin): {{collection}}"
-    delete: "delete(cms-admin): {{collection}}"
-    uploadMedia: "[skip ci] upload(cms-admin): “{{path}}”"
-    deleteMedia: "[skip ci] delete(cms-admin): “{{path}}”"
+    create: "create: {{collection}}"
+    update: "update: {{collection}}"
+    delete: "delete: {{collection}}"
+    uploadMedia: "upload: {{path}}"
+    deleteMedia: "delete: {{path}}"
 
 locale: 'ru'
 media_folder: static/media
@@ -213,6 +214,11 @@ collections:
             label: Описание (description),
             name: seoDescription,
             widget: text,
+          }
+        - {
+            label: Ключевые слова (keywords),
+            name: seoKeywords,
+            widget: string,
           }
         - {
             label: URL сайта,
