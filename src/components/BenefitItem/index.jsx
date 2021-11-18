@@ -27,7 +27,7 @@ const BenefitItem = ({
         component="img"
         height="140"
         image={img}
-        alt="sauna"
+        alt={title}
       />
       <CardContent sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
         <Typography gutterBottom variant="h5" component="div">

@@ -87,7 +87,7 @@ const Coach = () => {
         Тренер
       </Typography>
       <CoachInner>
-        <CoachImg sx={{ boxShadow: 3, m: 3 }} src={photo} />
+        <CoachImg sx={{ boxShadow: 3, m: 3 }} src={photo} alt="coach" />
         <Box
           sx={{
             display: 'flex',
