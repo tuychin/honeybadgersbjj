@@ -1,8 +1,8 @@
 ---
 id: theme
 colors:
-  bgColor: "#2d4059"
-  mainColor: "#ea5455"
-  accentuatingColor: "#f07b3f"
-  textColor: "#ffd460"
+  bgColor: "#f0f5f9"
+  mainColor: "#c9d6df"
+  accentuatingColor: "#52616b"
+  textColor: "#1e2022"
 ---
