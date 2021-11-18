@@ -1,11 +1,10 @@
 /* eslint-disable react/jsx-filename-extension */
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import { useLocation } from '@reach/router';
 import Helmet from 'react-helmet';
 import { styled, ThemeProvider } from '@mui/material/styles';
-import anime from 'animejs/lib/anime.es';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import Header from './components/Header';
@@ -45,16 +44,6 @@ const useData = () => {
   return data.markdownRemark.frontmatter;
 };
 
-const animateContentEmergence = (target) => {
-  anime({
-    targets: target,
-    easing: 'linear',
-    opacity: [
-      { value: 1, duration: 500, delay: 1000 },
-    ],
-  });
-};
-
 const StyledWrapper = styled('div')(({ theme }) => ({
   display: 'grid',
   gridTemplateRows: 'auto 1fr auto',
@@ -62,7 +51,6 @@ const StyledWrapper = styled('div')(({ theme }) => ({
   minHeight: '100vh',
   color: theme.palette.text.primary,
   backgroundColor: theme.palette.background.default,
-  opacity: 0,
 }));
 
 export const Layout = ({ children }) => {
@@ -82,11 +70,6 @@ export const Layout = ({ children }) => {
   } = useData();
   const theme = useTheme();
   const { pathname } = useLocation();
-  const contentRef = useRef(null);
-
-  useEffect(() => {
-    animateContentEmergence(contentRef.current);
-  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -117,7 +100,7 @@ export const Layout = ({ children }) => {
         ]}
       />
       <CssBaseline />
-      <StyledWrapper ref={contentRef}>
+      <StyledWrapper>
         <Header isFixed={pathname === '/'} logo={logo} />
         <main>{children}</main>
         <Footer
