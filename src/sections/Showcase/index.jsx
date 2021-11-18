@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useStaticQuery, graphql } from 'gatsby';
-import anime from 'animejs/lib/anime.es';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -26,26 +25,7 @@ const useData = () => {
   return data.markdownRemark.frontmatter.mainpitch;
 };
 
-const animateBackground = (target) => {
-  anime({
-    targets: target,
-    easing: 'easeInOutQuad',
-    scale: {
-      value: [1, 1.2],
-      duration: 16000,
-    },
-    translateX: {
-      value: '-50%',
-      duration: 0,
-    },
-    translateY: {
-      value: '-50%',
-      duration: 0,
-    },
-  });
-};
-
-const ShowcaseWrapper = styled('section')(() => ({
+const ShowcaseWrapper = styled('section')(({ theme }) => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -56,6 +36,9 @@ const ShowcaseWrapper = styled('section')(() => ({
   height: '100vh',
   minHeight: '568px',
   overflow: 'hidden',
+  backgroundColor: theme.palette.background.default,
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
 }));
 
 const ContentWrapper = styled('div')(({ theme }) => ({
@@ -71,15 +54,6 @@ const ContentWrapper = styled('div')(({ theme }) => ({
   },
 }));
 
-const StyledImage = styled('img')(() => ({
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  objectFit: 'cover',
-  height: '100%',
-  width: '100%',
-}));
-
 const StyledTypography = styled(Typography)(({ theme }) => ({
   marginBottom: theme.spacing(5),
   textAlign: 'center',
@@ -88,33 +62,16 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
   },
 }));
 
-const Overlay = styled('div')(() => ({
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  width: '100%',
-  height: '100vh',
-  minHeight: '568px',
-  backgroundColor: 'rgba(0, 0, 0, 0.8)',
-}));
-
 const Showcase = () => {
   const { title, description, image } = useData();
   const dispatch = useDispatch();
-  const imageRef = useRef(null);
-
-  useEffect(() => {
-    animateBackground(imageRef.current);
-  }, []);
 
   const handleContactModalOpen = () => {
     dispatch(openContactModal());
   };
 
   return (
-    <ShowcaseWrapper>
-      <StyledImage ref={imageRef} src={image} alt="background-image" />
-      <Overlay />
+    <ShowcaseWrapper sx={{ backgroundImage: `url(${image})` }}>
       <ContentWrapper>
         <StyledTypography variant="h1">
           {title}
