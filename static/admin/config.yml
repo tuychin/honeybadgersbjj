@@ -15,6 +15,8 @@ public_folder: /media
 collections:
   - label: Страницы
     name: pages
+    editor:
+      preview: false
     files:
       - file: src/markdown/pages/index.md
         label: Главная страница
@@ -168,6 +170,28 @@ collections:
             label: Логотип,
             name: logo,
             widget: image,
+          }
+    - file: src/markdown/params/theme.md
+      label: Тема
+      name: theme
+      fields:
+        - {
+            label: ID,
+            name: id,
+            widget: string,
+            default: theme,
+            pattern: ['theme', Это поле нельзя менять],
+          }
+        - {
+            label: Цвет,
+            name: colors,
+            widget: object,
+            fields: [
+              { label: Фоновый, name: bgColor, widget: color },
+              { label: Основной, name: mainColor, widget: color },
+              { label: Акцентирующий, name: accentuatingColor, widget: color },
+              { label: Текст, name: textColor, widget: color },
+            ],
           }
     - file: src/markdown/params/seo.md
       label: SEO-оптимизация (для поисковиков и соц. сетей)

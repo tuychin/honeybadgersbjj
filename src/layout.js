@@ -13,8 +13,8 @@ import Footer from './components/Footer';
 import ContactModal from './components/ContactModal';
 import CookiesNotification from './components/CookiesNotification';
 
+import useTheme from './hooks/useTheme';
 import Seo from './seo';
-import theme from './themes/primary';
 
 const useData = () => {
   const data = useStaticQuery(graphql`
@@ -55,7 +55,7 @@ const animateContentEmergence = (target) => {
   });
 };
 
-const StyledWrapper = styled('div')(() => ({
+const StyledWrapper = styled('div')(({ theme }) => ({
   display: 'grid',
   gridTemplateRows: 'auto 1fr auto',
   position: 'relative',
@@ -80,6 +80,7 @@ export const Layout = ({ children }) => {
       },
     },
   } = useData();
+  const theme = useTheme();
   const { pathname } = useLocation();
   const contentRef = useRef(null);
 
