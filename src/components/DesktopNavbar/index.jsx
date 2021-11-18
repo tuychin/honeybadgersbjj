@@ -27,9 +27,8 @@ const Navbar = () => {
     <DesktopNavbar>
       {pages.map(({ name, href }) => (
         <InnerLink
-          sx={{ mr: 3 }}
+          sx={{ mr: 3, color: 'text.primary' }}
           to={href}
-          color="white"
           underline="hover"
           activeStyle={{ textDecoration: 'underline' }}
           key={name}

@@ -79,8 +79,8 @@ const MobileNavbar = () => {
         <List onClick={handleClose}>
           {pages.map(({ name, href }) => (
             <InnerLink
+              sx={{ color: 'text.primary' }}
               to={href}
-              color="inherit"
               underline="none"
               activeStyle={{ textDecoration: 'underline' }}
               key={name}
