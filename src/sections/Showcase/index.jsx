@@ -56,6 +56,7 @@ const ContentWrapper = styled('div')(({ theme }) => ({
 
 const StyledTypography = styled(Typography)(({ theme }) => ({
   marginBottom: theme.spacing(5),
+  color: theme.palette.text.secondary,
   textAlign: 'center',
   [theme.breakpoints.between('xs', 'md')]: {
     marginBottom: theme.spacing(3),

@@ -35,7 +35,7 @@ function useTheme() {
   const theme = createTheme({
     styleOverrides: {
       root: {
-        borderRadius: 10,
+        borderRadius: 5,
       },
     },
     palette: {

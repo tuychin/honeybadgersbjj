@@ -83,6 +83,7 @@ const Coach = () => {
         }}
         variant="h2"
         component="h2"
+        color="secondary"
       >
         Тренер
       </Typography>
@@ -99,7 +100,7 @@ const Coach = () => {
             maxWidth: '500px',
           }}
         >
-          <Typography sx={{ mb: 3 }} variant="h3" component="h3">
+          <Typography sx={{ mb: 3 }} variant="h3" component="h3" color="secondary">
             {name}
           </Typography>
           {description && (
@@ -110,6 +111,7 @@ const Coach = () => {
             }}
             variant="body1"
             component="div"
+            color="secondary"
           >
             {description}
           </Typography>

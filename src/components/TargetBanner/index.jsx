@@ -47,6 +47,7 @@ const Banner = ({ text, buttonText, bgImage }) => {
           sx={{ mr: 3, mb: { xs: 4, md: 0 } }}
           variant="h4"
           component="span"
+          color="secondary"
         >
           {text}
         </Typography>
