@@ -2,7 +2,7 @@
 id: theme
 colors:
   bgColor: "#ffffff"
-  mainColor: "#e4e4e4"
-  accentuatingColor: "#414141"
-  textColor: "#414141"
+  mainColor: "#ffffff"
+  accentuatingColor: "#ff0000"
+  textColor: "#292929"
 ---
