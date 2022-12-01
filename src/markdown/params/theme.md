@@ -3,6 +3,6 @@ id: theme
 colors:
   bgColor: "#ffffff"
   mainColor: "#ffffff"
-  accentuatingColor: "#000000"
+  accentuatingColor: "#ffffff"
   textColor: "#292929"
 ---
