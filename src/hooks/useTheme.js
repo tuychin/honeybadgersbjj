@@ -33,6 +33,11 @@ function useTheme() {
   // const textColor = '#EEEEEE';
 
   const theme = createTheme({
+    styleOverrides: {
+      root: {
+        borderRadius: 10,
+      },
+    },
     palette: {
       common: {
         black: bgColor,

@@ -19,6 +19,7 @@ module.exports = {
     "react"
   ],
   "rules": {
+    "linebreak-style": 0,
     "no-param-reassign": 0,
     "react/jsx-props-no-spreading": 0,
     "import/no-named-as-default": 0,
